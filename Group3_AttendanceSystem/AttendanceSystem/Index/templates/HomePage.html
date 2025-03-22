@@ -6,13 +6,17 @@
 </head>
 <body>
 Attendance Checker
-
-<button>
+<form METHOD="POST">
+    {% csrf_token %}
+    <button type="submit" name="action" value="login">
     Login
-</button>
-<button>
+    </button>
+    <button type="submit" name="action" value="register">
     Register
-</button>
+    </button>
+</form>
+
+
 
 </body>
 </html>

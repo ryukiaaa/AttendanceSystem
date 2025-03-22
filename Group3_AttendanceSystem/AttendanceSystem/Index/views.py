@@ -9,6 +9,11 @@ class Home(View):
     def get(self,request):
         return render(request, 'HomePage.html')
 
+    def post(self, request):
+        if request.POST.get('action') == 'login':
+            return redirect('login')
+        elif request.POST.get('action') == 'register':
+            return redirect('register')
 
 
 class Login(View):
@@ -18,3 +23,11 @@ class Login(View):
 
     def post(self, request):
         return redirect('student/dashboard')
+
+class Register(View):
+
+    def get(self,request):
+        return render(request, 'register.html')
+
+    def post(self, request):
+        return redirect('login')

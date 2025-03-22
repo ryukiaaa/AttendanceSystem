@@ -67,9 +67,10 @@
     </style>
 </head>
 <body>
+{% load static %}
     <div class="container">
         <!-- Logo Image -->
-        <img src="citu_logo.png" alt="CIT Logo" class="logo">
+        <img src="{% static 'images/citu_logo.png' %}" alt="CIT Logo" class="logo">
         
 
         <form method="POST">
@@ -80,7 +81,7 @@
         </form>
         <div class="links">
             <p><a href="#">Forgot Password?</a></p>
-            <p><a href="#">Register</a></p>
+            <p><a href="register">Register</a></p>
         </div>
     </div>
 </body>

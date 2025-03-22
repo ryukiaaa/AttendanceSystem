@@ -8,7 +8,7 @@ class Teacher(User):
     department = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.teacher_id}-{self.last_name}"
+        return f"{self.teacher_id}-{self.lastname}"
 
 
 class Class(models.Model):
