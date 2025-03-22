@@ -1,6 +1,6 @@
 from django.db import models
-from Index import models
-
+from Index.models import User
+from Teacher.models import Class
 # Create your models here.
 
 class Student(User):
