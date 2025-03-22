@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #800000; /* Golden yellow background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: #F7C301; /* Slightly darker yellow for contrast */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px; /* Adjust size as needed */
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #800000; /* Maroon */
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn {
+            background-color: #800000;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #a00000;
+        }
+        .links {
+            margin-top: 10px;
+        }
+        .links a {
+            color: #800000;
+            text-decoration: none;  
+            font-size: 14px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Image -->
+        <img src="citu_logo.png" alt="CIT Logo" class="logo">
+        
+
+        <form>
+            <input type="text" placeholder="Username" required><br>
+            <input type="password" placeholder="Password" required><br>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="links">
+            <p><a href="#">Forgot Password?</a></p>
+            <p><a href="#">Register</a></p>
+        </div>
+    </div>
+</body>
+</html>
