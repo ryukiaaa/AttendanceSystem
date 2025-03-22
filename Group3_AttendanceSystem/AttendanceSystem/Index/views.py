@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import User
 
@@ -17,4 +17,4 @@ class Login(View):
         return render(request, 'login.html')
 
     def post(self, request):
-        return redirect('student:dashboard')
+        return redirect('student/dashboard')
