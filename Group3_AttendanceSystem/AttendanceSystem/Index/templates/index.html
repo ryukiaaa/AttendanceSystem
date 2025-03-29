@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title> Wildcats CAGE </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  </head>
+
+  <body>
+    <!-- HEADER + NAV -->
+    <header>
+      <img src="{% static 'images/citu_logo.png' %}" alt="CIT-U Logo">
+
+      <div id="title">
+        <div id="wc"> WILDCATS CAGE </div>
+        <div id="cage"> CHECKING ATTENDANCE GETS EASY </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li> <a id="current" href="{% url 'index' %}">Home</a> </li>
+          <li> <a href="{% url 'index' %}">About</a> </li>
+          <li> <a href="{% url 'index' %}">Contact</a> </li>
+          <li> <a href="{% url 'login' %}">Login</a> </li>
+          <li> <a href="{% url 'register' %}">Register</a> </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="row">
+        <div class="rowtxt">
+          <h2> GET YOUR CLASSES STARTED </h2>
+          <p> Save time by recording student attendance in an instant </p>
+          <button> TRY IT! </button>
+        </div>
+
+        <img class="rowimg" src="{% static 'images/index_img1.png' '%}" alt="Classroom with students raising hands">
+      </div>
+
+      <div class="row">
+        <img class="rowimg" src="{% static 'images/index_img2.png' %}" alt="Teacher looking at laptop screen">
+
+        <div class="rowtxt2">
+          <h2> NEVER LOSE TRACK </h2>
+          <p> Take a look at how your classes are doing — anytime, anywhere </p>
+          <button> FOR TEACHERS </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="rowtxt">
+          <h2> LET YOUR PRESENCE BE FELT </h2>
+          <p> With a single tap or click, you are now ready to take on<br>another school day </p>
+          <button> FOR STUDENTS </button>
+        </div>
+
+        <img class="rowimg" src="{% static 'images/index_img3.png' %}" alt="Student checking phone">
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        <h3> WILDCATS CAGE </h3>
+        <p> Making attendance management simple<br/>and efficient for educational institutions. </p>
+      </div>
+
+      <div>
+        <h3> QUICK LINKS </h3>
+        <ul>
+          <li> <a>CIT-U Homepage</a> </li>
+          <li> <a>CIT-U Facebook</a> </li>
+          <li> <a>CCS Facebook</a> </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3> FOR USERS </h3>
+        <ul>
+          <li> <a>GitHub</a> </li>
+          <li> <a>Figma</a> </li>
+          <li> <a>Canva</a> </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3> CONNECT WITH US </h3>
+        <ul>
+          <li> <a>Twitter</a> </li>
+          <li> <a>Instagram</a> </li>
+          <li> <a>Facebook</a> </li>
+        </ul>
+      </div>
+
+      <div>
+        <p> &copy; 2025 - Wildcats CAGE - All rights reserved </p>
+      </div>
+    </footer>
+  </body>
+</html>
