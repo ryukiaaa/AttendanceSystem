@@ -22,6 +22,7 @@ class Login(View):
             username = request.POST.get('username')
             password = request.POST.get('password')
 
+            # Check if user exists
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
