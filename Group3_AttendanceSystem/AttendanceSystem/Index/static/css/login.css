@@ -1,0 +1,73 @@
+/* Styles for login page */
+
+main
+{
+    display: block;
+    width: 100%;
+    padding-top: 2vw;
+    padding-bottom: 5vw;
+    border-top: 2px solid #78081C;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1vw;
+}
+
+#formheader
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1vw;
+    margin-bottom: 1vw;
+}
+
+#formheader h1
+{
+    font-size: 3vw;
+    color: #78081C;
+}
+
+#formheader p
+{
+    font-size: 1.2vw;
+}
+
+#showerror
+{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1vw;
+    color: red;
+}
+
+.formfield
+{
+    width: 20vw;
+    padding: 0.8vw;
+    padding-left: 1.5vw;
+    border: 1px solid #666;
+    border-radius: 10px;
+    font-size: 1vw;
+    background-color: #EEE;
+}
+
+#submit
+{
+    width: fit-content;
+    margin-top: 2vw;
+    padding: 0.6vw 1vw;
+    border: none;
+    border-radius: 6px;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #78081C;
+    color: #F7C301;
+}
