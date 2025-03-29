@@ -1,0 +1,115 @@
+/* Styles for student dashboard */
+
+main
+{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EEE;
+}
+
+main h1
+{
+    width: 90%;
+    padding: 1vw;
+    font-size: 1.5vw;
+    text-align: center;
+    background-color: #78081C;
+    color: #F7C301;
+}
+
+#classes
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    width: 90%;
+    gap: 2vw;
+    padding: 2vw;
+    background-color: #DDD;
+}
+
+.classcard
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 18vw;
+    padding-top: 1.5vw;
+    row-gap: 1vw;
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    align-items: center;
+    cursor: pointer;
+}
+
+.classcard:hover
+{
+    transform: translateY(-5px);
+    border: 2px solid #666;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+}
+
+.classcard h2
+{
+    font-size: 1.3vw;
+}
+
+.classcard p
+{
+    font-size: 1vw;
+    color: #666;
+}
+
+.classicon
+{
+    display: flex;
+    width: 16vw;
+    height: 8vw;
+}
+
+.classicon img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#joinclass
+{
+    justify-content: center;
+}
+
+#joinclass h2
+{
+    font-size: 3vw;
+}
+
+#joinclass p
+{
+    font-size: 1.3vw;
+}
+
+#attendance
+{
+    width: 90%;
+    padding: 2vw;
+    background-color: #DDD;
+}
+
+table
+{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td
+{
+    padding: 1vw;
+    border: 1px solid #CCC;
+}
