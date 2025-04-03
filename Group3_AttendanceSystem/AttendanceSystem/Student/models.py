@@ -1,26 +1,39 @@
 from django.db import models
-from Index.models import User
-from Teacher.models import Class
+from django.contrib.auth.models import User
+
 # Create your models here.
-
 class Student(User):
-    student_id = models.CharField(max_length=20, primary_key=True)
-    course = models.CharField(max_length=100)
-    year_level = models.PositiveIntegerField()
+    course = models.CharField(max_length=50)
+    year = models.IntegerField()
 
+    # Makes sure the password is hashed in the database when a new student is created
+    def save(self, *args, **kwargs):
+        self.set_password(self.password)
+        super().save(*args, **kwargs)
+
+    # Show firstname and lastname in admin site
     def __str__(self):
-        return f"{self.student_id}-{self.last_name}"
+        # Get inherited fields
+        first_name = super(User, self).first_name
+        last_name = super(User, self).last_name
+
+        return first_name + ' ' + last_name
 
 
 class Attendance(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    class_obj = models.ForeignKey(Class, on_delete=models.CASCADE)
+    # When an attendance record is created, the date is automatically set to current date
     date = models.DateField(auto_now_add=True)
     time_in = models.TimeField()
     time_out = models.TimeField(null=True, blank=True)
 
-    class Meta:
-        unique_together = ('student', 'class_obj', 'date')
+    # ASSOCIATION: Many students to many classes
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    joined_class = models.ForeignKey('Teacher.Class', on_delete=models.CASCADE)
 
+    # Avoid duplicate (same student on the same class and date) attendance records
+    class Meta:
+        unique_together = ('student', 'joined_class', 'date')
+
+    # Show attendance details in admin site
     def __str__(self):
-        return f"{self.student} - {self.class_obj} on {self.date}"
+        return f"{self.student} - {self.joined_class} on {self.date}"
