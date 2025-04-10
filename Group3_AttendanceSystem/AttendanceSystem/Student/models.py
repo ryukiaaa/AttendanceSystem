@@ -37,3 +37,12 @@ class Attendance(models.Model):
     # Show attendance details in admin site
     def __str__(self):
         return f"{self.student} - {self.joined_class} on {self.date}"
+
+
+class StudentProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    student_id = models.CharField(max_length=20, unique=True)
+    year = models.IntegerField(default=2025)
+
+    def __str__(self):
+        return self.user.username

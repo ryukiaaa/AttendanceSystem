@@ -1,13 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+# Add the missing Class model here
+class Class(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    year = models.IntegerField(default=2025)
 
-# Create your models here.
+    def __str__(self):
+        return self.name
 
-class User(models.Model):
-    type_user = (('S', 'Student'), ('T', 'Teacher'))
-    username = models.CharField(max_length=15, primary_key=True)
-    password = models.CharField(max_length=25)
-    firstname = models.CharField(max_length=25)
-    lastname = models.CharField(max_length=25)
-    email = models.EmailField(unique=True)
-    type = models.CharField(max_length=1, choices=type_user)
+# If you have other models, keep them below

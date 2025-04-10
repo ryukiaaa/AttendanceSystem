@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login Role - Wildcats C.A.G.E</title>
+    <link rel="stylesheet" href="{% static 'css/loginrole.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="{% static 'images/citu_logo.png' %}" alt="CIT University Logo" class="logo">
+            <div class="navbar-title">
+                <div class="title">WILDCATS C.A.G.E</div>
+                <div class="subtitle">CHECKING ATTENDANCE GETS EASY</div>
+            </div>
+        </div>
+        <nav class="navbar-links">
+            <a href="{% url 'index' %}">HOME</a>
+            <a href="{% url 'index' %}">ABOUT</a>
+            <a href="{% url 'index' %}">CONTACT</a>
+            <a href="{% url 'loginrole' %}" class="active">LOGIN</a>
+            <a href="{% url 'registerrole' %}">REGISTER</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="role-box">
+            <img src="{% static 'images/citu_logo.png' %}" alt="CIT University Logo" class="role-logo">
+            <h1>WILDCATS</h1>
+            <h2>CHECKING ATTENDANCE GETS EASY</h2>
+            <h3>Select Your Role to Login</h3>
+            <a href="{% url 'loginstudent' %}" class="role-button-link"><button class="role-button">Student</button></a>
+            <a href="{% url 'loginteacher' %}" class="role-button-link"><button class="role-button">Teacher</button></a>
+            <p class="login-text">Don't have an account? <a href="{% url 'registerrole' %}">Register</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-section about">
+            <h4><span class="wildcats-text">WILDCATS</span> <span class="cage-text">C.A.G.E</span></h4>
+            <p>Making attendance management simple and efficient for educational institutions.</p>
+        </div>
+        <div class="footer-section links">
+            <h4 class="quicklinks">QUICK LINKS</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section users">
+            <h4 class="forusers">FOR USERS</h4>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h4 class="connect">CONNECT WITH US</h4>
+            <div class="social-icons">
+                <img src="{% static 'images/twitter_icon.svg' %}" alt="Twitter">
+                <img src="{% static 'images/instagram_icon_1.svg' %}" alt="Instagram">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'AttendanceSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbattendancesystem',
+        'NAME': 'attendancesystem',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'dblapuredemo123',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {'init_command':"set sql_mode='strict_trans_tables'"},

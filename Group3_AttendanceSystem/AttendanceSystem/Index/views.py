@@ -6,6 +6,30 @@ from django.contrib.auth import authenticate, login, logout
 from . import forms
 
 
+def register_role_view(request):
+    return render(request, 'registerrole.html')
+
+
+def register_student_view(request):
+    return render(request, 'registerstudent.html')
+
+
+def register_teacher_view(request):
+    return render(request, 'registerteacher.html')
+
+
+def login_role_view(request):
+    return render(request, 'loginrole.html')
+
+
+def login_student_view(request):
+    return render(request, 'loginstudent.html')
+
+
+def login_teacher_view(request):
+    return render(request, 'loginteacher.html')
+
+
 # Render index page
 class Index(View):
     def get(self, request):
@@ -15,7 +39,7 @@ class Index(View):
 # Render login page
 class Login(View):
     def get(self, request):
-        return render(request, 'login.html')
+        return redirect('loginrole')
 
     def post(self, request):
         if request.method == 'POST':

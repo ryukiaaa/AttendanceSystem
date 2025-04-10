@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Register Teacher - Wildcats C.A.G.E</title>
+    <link rel="stylesheet" href="{% static 'css/registerteacher.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="{% static 'images/citu_logo.png' %}" alt="CIT University Logo" class="logo">
+            <div class="navbar-title">
+                <div class="title">WILDCATS C.A.G.E</div>
+                <div class="subtitle">CHECKING ATTENDANCE GETS EASY</div>
+            </div>
+        </div>
+        <nav class="navbar-links">
+            <a href="{% url 'index' %}">HOME</a>
+            <a href="{% url 'index' %}">ABOUT</a>
+            <a href="{% url 'index' %}">CONTACT</a>
+            <a href="{% url 'login' %}">LOGIN</a>
+            <a href="{% url 'registerrole' %}">REGISTER</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="register-box">
+            <div class="register-header">
+                <div class="header-text">
+                    <h1>WILDCATS</h1>
+                    <h2>CHECKING ATTENDANCE GETS EASY</h2>
+                </div>
+                <img src="{% static 'images/citu_logo.png' %}" alt="CIT University Logo" class="register-logo">
+            </div>
+            <h3>Teacher Registration</h3>
+            <form class="register-form">
+                <label>Name</label>
+                <input type="text" placeholder="Enter your name" required>
+
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+
+                <label>Department ID</label>
+                <input type="text" placeholder="Enter your department ID" required>
+
+                <label>Courses</label>
+                <input type="text" placeholder="e.g CSIT327, CSIT321" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password" required>
+
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm your password" required>
+
+                <div class="button-row">
+                    <button type="button" class="back-btn">Back</button>
+                    <button type="submit" class="create-account-btn">Create Account</button>
+                </div>
+            </form>
+            <p class="login-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-section about">
+            <h4><span class="wildcats-text">WILDCATS</span> <span class="cage-text">C.A.G.E</span></h4>
+            <p>Making attendance management simple and efficient for educational institutions.</p>
+        </div>
+        <div class="footer-section links">
+            <h4>QUICK LINKS</h4>
+            <ul>
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li><a href="{% url 'index' %}">ABOUT</a></li>
+                <li><a href="{% url 'index' %}">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="footer-section users">
+            <h4>FOR USERS</h4>
+            <ul>
+                <li><a href="{% url 'login' %}">LOGIN</a></li>
+                <li><a href="{% url 'registerrole' %}">REGISTER</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h4>CONNECT WITH US</h4>
+            <div class="social-icons">
+                <img src="{% static 'images/twitter_icon_teacher.svg' %}" alt="Twitter">
+                <img src="{% static 'images/instagram_icon_1_teacher.svg' %}" alt="Instagram">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Login - Wildcats C.A.G.E</title>
+    <link rel="stylesheet" href="{% static 'css/loginstudent.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="{% static 'images/citu_logo.png' %}" alt="CIT University Logo" class="logo">
+            <div class="navbar-title">
+                <div class="title">WILDCATS C.A.G.E</div>
+                <div class="subtitle">CHECKING ATTENDANCE GETS EASY</div>
+            </div>
+        </div>
+        <nav class="navbar-links">
+            <a href="{% url 'index' %}">HOME</a>
+            <a href="{% url 'index' %}">ABOUT</a>
+            <a href="{% url 'index' %}">CONTACT</a>
+            <a href="{% url 'loginrole' %}" class="active">LOGIN</a>
+            <a href="{% url 'registerrole' %}">REGISTER</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="register-box">
+            <img src="{% static 'images/citu_logo.png' %}" alt="CIT University Logo" class="register-logo">
+            <h1>WILDCATS</h1>
+            <h2>CHECKING ATTENDANCE GETS EASY</h2>
+            <h3>Student Login</h3>
+            <form class="register-form">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password" required>
+
+                <div class="options-row">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <div class="button-row">
+                    <a href="{% url 'loginrole' %}"><button type="button" class="back-btn">Back</button></a>
+                    <button type="submit" class="login-btn">Login</button>
+                </div>
+            </form>
+            <p class="login-text">Don't have an account? <a href="{% url 'registerrole' %}">Register</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-section about">
+            <h4><span class="wildcats-text">WILDCATS</span> <span class="cage-text">C.A.G.E</span></h4>
+            <p>Making attendance management simple and efficient for educational institutions.</p>
+        </div>
+        <div class="footer-section links">
+            <h4 class="quicklinks">QUICK LINKS</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section users">
+            <h4 class="forusers">FOR USERS</h4>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+        <div class="footer-section social">
+            <h4 class="connect">CONNECT WITH US</h4>
+            <div class="social-icons">
+                <img src="{% static 'images/twitter_icon.svg' %}" alt="Twitter">
+                <img src="{% static 'images/instagram_icon_1.svg' %}" alt="Instagram">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
