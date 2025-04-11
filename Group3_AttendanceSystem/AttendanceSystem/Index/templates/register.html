@@ -35,29 +35,17 @@
 
     <!-- MAIN -->
     <main>
-      <form method="POST" action="">
-        {% csrf_token %}
-
-        <div id="formheader">
-          <h1> Create Account </h1>
-          <p> Join us and start managing your attendance </p>
-        </div>
-
-        <div id="showerror">
-          {% for message in messages %}
-            <p> {{message}} </p>
-          {% endfor %}
-        </div>
-
-        {{form.username}}
-        {{form.first_name}}
-        {{form.last_name}}
-        {{form.email}}
-        {{form.password1}}
-        {{form.password2}}
-
-        <input id="submit" type="submit" value="Create Account">
-      </form>
+      <div id="selectrole">
+        <img src="{% static 'images/citu_logo.png' %}" alt="CIT - U Logo">
+        <h1> WILDCATS CAGE </h1>
+        <h2> CHECKING ATTENDANCE GETS EASY </h2>
+        <hr/>
+        <h3> Select Your Role </h3>
+        <a href="{% url 'registerstudent' %}"> <button> Student </button> </a>
+        <p> or </p>
+        <a href="{% url 'registerteacher' %}"> <button> Teacher </button> </a>
+        <p> Already have an account? <a href="{% url 'login' %}"> Login </a> </p>
+      </div>
     </main>
 
     <footer>
