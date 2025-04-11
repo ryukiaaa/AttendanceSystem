@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Group
 from . import forms
-from .forms import CreateTeacherForm
 
 
 class Index(View):
@@ -104,7 +103,7 @@ class RegisterStudent(View):
 
 
 class RegisterTeacher(View):
-    form = CreateTeacherForm()
+    form = forms.CreateTeacherForm()
 
     def get(self, request):
         return render(request, 'registerteacher.html', {'form': self.form})
