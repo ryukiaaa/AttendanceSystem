@@ -25,8 +25,8 @@
       <nav>
         <ul>
           <li> <a id="current" href="{% url 'index' %}">Home</a> </li>
-          <li> <a href="{% url 'index' %}">About</a> </li>
-          <li> <a href="{% url 'index' %}">Contact</a> </li>
+          <li> <a href="#about">About</a> </li>
+          <li> <a href="#contact">Contact</a> </li>
           <li> <a href="{% url 'login' %}">Login</a> </li>
           <li> <a href="{% url 'register' %}">Register</a> </li>
         </ul>
@@ -66,42 +66,92 @@
       </div>
     </main>
 
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <h2>ABOUT US</h2>
+        <div class="about-features">
+          <div class="about-feature">
+            <img src="{% static 'images/aboutus_icon_clock.svg' %}" alt="Quick Recording" class="about-icon">
+            <h3>Quick Recording</h3>
+            <p>Mark attendance with just one click - simple and efficient</p>
+          </div>
+          <div class="about-feature">
+            <img src="{% static 'images/aboutus_icon_bell.svg' %}" alt="Smart Notification" class="about-icon">
+            <h3>Smart Notification</h3>
+            <p>Automated alerts for absences and important updates</p>
+          </div>
+          <div class="about-feature">
+            <img src="{% static 'images/aboutus_icon_piechart.svg' %}" alt="Real-time Analytics" class="about-icon">
+            <h3>Real-time Analytics</h3>
+            <p>Get instant insights into attendance patterns and trends</p>
+          </div>
+          <div class="about-feature">
+            <img src="{% static 'images/aboutus_icon_people.svg' %}" alt="Multiple User Roles" class="about-icon">
+            <h3>Multiple User Roles</h3>
+            <p>Tailored access for students, teachers, and administrators</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container contact-flex">
+        <div class="contact-info">
+          <h2>GET IN TOUCH</h2>
+          <p class="contact-subtitle">We're here to help with any questions</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <img src="{% static 'images/index_icon_envelope.svg' %}" alt="Email" class="contact-icon contact-icon-yellow">
+              <a href="mailto:support@wildcatscage.com" class="contact-link">support@wildcatscage.com</a>
+            </div>
+            <div class="contact-item">
+              <img src="{% static 'images/index_icon_phone.svg' %}" alt="Phone" class="contact-icon contact-icon-yellow">
+              <span>## #### ####</span>
+            </div>
+            <div class="contact-item">
+              <img src="{% static 'images/index_icon_globe.svg' %}" alt="Address" class="contact-icon contact-icon-yellow">
+              <span>N. Bacalso Ave., Cebu City, Philippines</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" class="contact-input" required>
+          <input type="email" placeholder="Your Email" class="contact-input" required>
+          <textarea placeholder="Your Message" class="contact-textarea" required></textarea>
+          <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer>
-      <div>
-        <h3> WILDCATS CAGE </h3>
-        <p> Making attendance management simple<br/>and efficient for educational institutions. </p>
+    <footer class="footer footer-yellow">
+      <div class="footer-section about">
+        <h4><span class="wildcats-text">WILDCATS</span> <span class="cage-text">C.A.G.E</span></h4>
+        <p>Making attendance management simple and efficient for educational institutions.</p>
       </div>
-
-      <div>
-        <h3> QUICK LINKS </h3>
+      <div class="footer-section links">
+        <h4>QUICK LINKS</h4>
         <ul>
-          <li> <a>CIT-U Homepage</a> </li>
-          <li> <a>CIT-U Facebook</a> </li>
-          <li> <a>CCS Facebook</a> </li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-
-      <div>
-        <h3> FOR USERS </h3>
+      <div class="footer-section users">
+        <h4>FOR USERS</h4>
         <ul>
-          <li> <a>GitHub</a> </li>
-          <li> <a>Figma</a> </li>
-          <li> <a>Canva</a> </li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          <li><a href="#">Help Center</a></li>
         </ul>
       </div>
-
-      <div>
-        <h3> CONNECT WITH US </h3>
-        <ul>
-          <li> <a>Twitter</a> </li>
-          <li> <a>Instagram</a> </li>
-          <li> <a>Facebook</a> </li>
-        </ul>
-      </div>
-
-      <div>
-        <p> &copy; 2025 - Wildcats CAGE - All rights reserved </p>
+      <div class="footer-section social">
+        <h4>CONNECT WITH US</h4>
+        <div class="social-icons">
+          <img src="{% static 'images/index_icon_twitter.svg' %}" alt="Twitter">
+          <img src="{% static 'images/index_icon_instagram1.svg' %}" alt="Instagram">
+        </div>
       </div>
     </footer>
   </body>

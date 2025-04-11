@@ -11,7 +11,7 @@ main
 .row
 {
     display: grid;
-    width: 90%;
+    width: 100%;
     height: 20vw;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
@@ -83,4 +83,333 @@ main
 .rowtxt p, .rowtxt2 p
 {
     font-size: 1.2vw;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 60px 0 40px 0;
+    height: 600px;
+}
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.about-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+.about-feature {
+    background: #f7c30122;
+    border-radius: 18px;
+    padding: 32px 24px;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(120,8,28,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+}
+.about-feature h3 {
+    color: #78081C;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+.about-feature p {
+    color: #000;
+    font-size: 1em;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    background: #851133;
+    padding: 60px 0 0 0;
+    color: #fff;
+}
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 0;
+}
+.contact-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+.contact-info {
+    flex: 1 1 340px;
+    min-width: 320px;
+    margin-bottom: 40px;
+}
+.contact-info h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.contact-subtitle {
+    font-size: 1.1em;
+    margin-bottom: 32px;
+    color: #fff;
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 24px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 1.1em;
+    color: #fff;
+}
+.contact-icon {
+    width: 36px;
+    height: 36px;
+}
+.contact-icon-yellow {
+    filter: brightness(0) saturate(100%) invert(77%) sepia(98%) saturate(749%) hue-rotate(1deg) brightness(104%) contrast(104%);
+}
+.contact-link {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 1.1em;
+}
+.contact-form {
+    flex: 1 1 400px;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+}
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.18);
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    color: #fff;
+    font-size: 1em;
+    margin-bottom: 0;
+    outline: none;
+    transition: background 0.2s;
+}
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    color: #fff;
+    opacity: 0.8;
+}
+.contact-textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+.contact-btn {
+    background: #F7C301;
+    color: #78081C;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 36px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-end;
+    transition: background 0.2s, color 0.2s;
+}
+.contact-btn:hover {
+    background: #fff;
+    color: #78081C;
+}
+
+/* FOOTER (override/additions for index page) */
+.footer {
+    background: #78081C;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px 0 20px 0;
+    margin-top: 0;
+}
+.footer-yellow {
+    background: #F7C301 !important;
+    color: #78081C !important;
+}
+.footer-yellow .footer-section h4,
+.footer-yellow .footer-section.about h4 .wildcats-text {
+    color: #78081C !important;
+    font-weight: 700;
+}
+.footer-yellow .footer-section.about h4 .cage-text {
+    color: #fff !important;
+}
+.footer-yellow .footer-section {
+    color: #78081C !important;
+}
+.footer-yellow .footer-section ul li a {
+    color: #78081C !important;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-yellow .footer-section ul li a:hover {
+    color: #fff !important;
+}
+/* Remove any border or border-top from social section */
+.footer-section.social,
+.footer-yellow .footer-section.social,
+.footer-section.social h4,
+.footer-yellow .footer-section.social h4,
+.footer-section.social .social-icons {
+    border: none !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure social section aligns with other footer sections */
+.footer-section.social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 1 1 200px;
+    margin: 10px;
+    min-width: 150px;
+}
+
+/* Align social section heading with others */
+.footer-section.social h4 {
+    margin-top: 0 !important;
+    margin-bottom: 12px;
+    text-align: left;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+/* Social icons spacing */
+.footer-section.social .social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+/* Social icons style */
+.footer-yellow .footer-section.social .social-icons img {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border-radius: 50%;
+    padding: 4px;
+    filter: brightness(0) saturate(100%) invert(22%) sepia(99%) saturate(749%) hue-rotate(-11deg) brightness(104%) contrast(104%);
+    transition: background 0.2s;
+}
+.footer-yellow .footer-section.social .social-icons img:hover {
+    background: #fff;
+}
+.footer-section {
+    flex: 1 1 180px;
+    margin: 0 20px;
+    min-width: 180px;
+}
+.footer-section h4 {
+    color: #f7c301;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+.footer-section.about h4 .wildcats-text {
+    color: #f7c301;
+}
+.footer-section.about h4 .cage-text {
+    color: #fff;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-section ul li a:hover {
+    color: #f7c301;
+}
+.footer-section.social .social-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+}
+.footer-section.social .social-icons img {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    transition: background 0.2s;
+}
+.footer-section.social .social-icons img:hover {
+    background: #f7c301;
+}
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .contact-container, .contact-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info, .contact-form {
+        width: 90%;
+        min-width: 0;
+        margin-bottom: 24px;
+    }
+    .about-features, .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-feature, .footer-section {
+        width: 90%;
+        margin-bottom: 24px;
+    }
+}
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
