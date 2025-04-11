@@ -1,0 +1,125 @@
+/* Styles for role registration page */
+
+main
+{
+    display: block;
+    width: 100%;
+    padding-top: 2vw;
+    padding-bottom: 5vw;
+    background-color: #78081C;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border-radius: 10px;
+    padding-top: 3vw;
+    padding-bottom: 4vw;
+    justify-self: center;
+    align-items: center;
+    row-gap: 1vw;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+form img
+{
+    width: 6vw;
+}
+
+form h1
+{
+    font-size: 2vw;
+    color: #78081C;
+}
+
+form h2
+{
+    font-size: 1vw;
+    color: #F7C301;
+}
+
+form hr
+{
+    width: 60%;
+    border-color: #F7C301;
+}
+
+form h3
+{
+    margin-top: 1vw;
+    font-size: 1.2vw;
+    color: #78081C;
+}
+
+#showerror
+{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1vw;
+    color: red;
+}
+
+.formfield
+{
+    width: 20vw;
+    padding: 0.8vw;
+    padding-left: 1.5vw;
+    border: 1px solid #666;
+    border-radius: 20px;
+    font-size: 1vw;
+    background-color: #DDD;
+}
+
+#buttons
+{
+    display: flex;
+    column-gap: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+#buttons a
+{
+    text-decoration: none;
+}
+
+#back
+{
+    width: fit-content;
+    padding: 0.5vw 2vw;
+    border: none;
+    border-radius: 6px;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #F7C301;
+    color: #78081C;
+}
+
+#createaccount
+{
+    width: fit-content;
+    padding: 0.5vw 2vw;
+    border: none;
+    border-radius: 6px;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #78081C;
+    color: #F7C301;
+}
+
+#login
+{
+    font-size: 1vw;
+}
+
+#login a
+{
+    color: #78081C;
+}
