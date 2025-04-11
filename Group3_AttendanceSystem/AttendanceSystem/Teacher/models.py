@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Importing model 'Student' causes an ImportError:
 # "cannot import name 'Student' from partially initialized module 'Student.models'
 # (most likely due to a circular import)"
-# RESOLVED: On line 42, used 'Appname.Modelname' as parameter instead
+# RESOLVED: On line 47, used 'Appname.Modelname' as parameter instead
 # from Student.models import Student
 
 # Create your models here.
@@ -24,9 +24,14 @@ class Teacher(User):
 
         return first_name + ' ' + last_name
 
+    # Change displayed model name in admin site
+    class Meta:
+        verbose_name =  'teacher'
+        verbose_name_plural = 'teachers'
+
 
 class Class(models.Model):
-    class_id = models.IntegerField(primary_key=True)
+    class_id = models.BigAutoField(primary_key=True)
     class_name = models.CharField(max_length=100)
     class_code = models.CharField(max_length=20, unique=True)
     join_code = models.CharField(max_length=50, unique=True) # Could be converted to a QR code (maybe?)
@@ -44,3 +49,8 @@ class Class(models.Model):
     # Show class code in the admin site
     def __str__(self):
         return self.class_code
+
+    # Change displayed model name in admin site
+    class Meta:
+        verbose_name = 'class'
+        verbose_name_plural = 'classes'
