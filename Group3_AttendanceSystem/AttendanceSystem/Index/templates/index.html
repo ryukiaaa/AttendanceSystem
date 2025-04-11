@@ -28,7 +28,7 @@
           <li> <a href="#about">About</a> </li>
           <li> <a href="#contact">Contact</a> </li>
           <li> <a href="{% url 'login' %}">Login</a> </li>
-          <li> <a href="{% url 'register' %}">Register</a> </li>
+          <li> <a href="{% url 'registerrole' %}">Register</a> </li>
         </ul>
       </nav>
     </header>
@@ -134,23 +134,24 @@
       <div class="footer-section links">
         <h4>QUICK LINKS</h4>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="{% url 'index' %}">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
         </ul>
       </div>
       <div class="footer-section users">
         <h4>FOR USERS</h4>
         <ul>
-          <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="{% url 'register' %}">Register</a></li>
-          <li><a href="#">Help Center</a></li>
+          <li><a href="{% url 'login' %}">LOGIN</a></li>
+          <li><a href="{% url 'registerrole' %}">REGISTER</a></li>
+          <li><a href="#">HELP CENTER</a></li>
         </ul>
       </div>
       <div class="footer-section social">
         <h4>CONNECT WITH US</h4>
         <div class="social-icons">
-          <img src="{% static 'images/index_icon_twitter.svg' %}" alt="Twitter">
-          <img src="{% static 'images/index_icon_instagram1.svg' %}" alt="Instagram">
+          <img src="{% static 'images/twitter_icon_teacher.svg' %}" alt="Twitter">
+          <img src="{% static 'images/instagram_icon_1_teacher.svg' %}" alt="Instagram">
         </div>
       </div>
     </footer>

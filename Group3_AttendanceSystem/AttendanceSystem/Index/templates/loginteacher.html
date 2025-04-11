@@ -32,12 +32,20 @@
             <h1>WILDCATS</h1>
             <h2>CHECKING ATTENDANCE GETS EASY</h2>
             <h3>Teacher Login</h3>
-            <form class="register-form">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required>
+            <form class="register-form" method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter your username" required>
 
                 <label>Password</label>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
 
                 <div class="options-row">
                     <label><input type="checkbox"> Remember me</label>

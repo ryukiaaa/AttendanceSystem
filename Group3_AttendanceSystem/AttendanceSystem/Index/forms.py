@@ -13,3 +13,22 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+# Student registration form
+class StudentRegisterForm(UserCreationForm):
+    student_id = forms.CharField(max_length=20)
+    course = forms.CharField(max_length=100)
+    year = forms.IntegerField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+# Teacher registration form
+class TeacherRegisterForm(UserCreationForm):
+    department_id = forms.CharField(max_length=20)
+    courses = forms.CharField(max_length=200)
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']

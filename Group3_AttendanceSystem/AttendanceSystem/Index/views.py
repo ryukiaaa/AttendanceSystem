@@ -11,11 +11,50 @@ def register_role_view(request):
 
 
 def register_student_view(request):
-    return render(request, 'registerstudent.html')
+    from .models import UserProfile, StudentProfile
+    if request.method == 'POST':
+        form = forms.StudentRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Create UserProfile with role 'student'
+            user_profile = UserProfile.objects.create(user=user, role='student')
+            # Create StudentProfile with extra fields
+            StudentProfile.objects.create(
+                profile=user_profile,
+                student_id=form.cleaned_data['student_id'],
+                course=form.cleaned_data['course'],
+                year=form.cleaned_data['year']
+            )
+            messages.success(request, 'Student account created successfully.')
+            return redirect('loginrole')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = forms.StudentRegisterForm()
+    return render(request, 'registerstudent.html', {'form': form})
 
 
 def register_teacher_view(request):
-    return render(request, 'registerteacher.html')
+    from .models import UserProfile, TeacherProfile
+    if request.method == 'POST':
+        form = forms.TeacherRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Create UserProfile with role 'teacher'
+            user_profile = UserProfile.objects.create(user=user, role='teacher')
+            # Create TeacherProfile with extra fields
+            TeacherProfile.objects.create(
+                profile=user_profile,
+                department_id=form.cleaned_data['department_id'],
+                courses=form.cleaned_data['courses']
+            )
+            messages.success(request, 'Teacher account created successfully.')
+            return redirect('loginrole')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = forms.TeacherRegisterForm()
+    return render(request, 'registerteacher.html', {'form': form})
 
 
 def login_role_view(request):
@@ -51,10 +90,22 @@ class Login(View):
 
             if user is not None:
                 login(request, user)
-                return redirect('student:dashboard')
+                # Redirect based on user role
+                try:
+                    role = user.userprofile.role
+                    if role == 'student':
+                        return redirect('/student/dashboard/')  # Student dashboard URL
+                    elif role == 'teacher':
+                        return redirect('/teacher/dashboard')  # Teacher dashboard URL
+                    else:
+                        messages.error(request, 'User role not set.')
+                        return redirect('loginrole')
+                except Exception as e:
+                    messages.error(request, f'User profile not found: {str(e)}')
+                    return redirect('loginrole')
             else:
-                messages.info(request, 'Invalid credentials')
-                return render(request, 'login.html')
+                messages.error(request, 'Invalid username or password')
+                return redirect('loginrole')
 
 
 # Render register page
