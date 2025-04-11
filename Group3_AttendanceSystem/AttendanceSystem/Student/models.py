@@ -2,6 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+class SubtypeTest(User):
+    year = models.IntegerField()
+    course = models.CharField(max_length=100)
+
+    def __str__(self):
+        first_name = super(User, self).first_name
+        last_name = super(User, self).last_name
+        return first_name + ' ' + last_name
+
+
 class Student(User):
     course = models.CharField(max_length=50)
     year = models.IntegerField()
@@ -18,6 +28,11 @@ class Student(User):
         last_name = super(User, self).last_name
 
         return first_name + ' ' + last_name
+
+    # Change displayed model name in admin site
+    class Meta:
+        verbose_name =  'student'
+        verbose_name_plural = 'students'
 
 
 class Attendance(models.Model):
