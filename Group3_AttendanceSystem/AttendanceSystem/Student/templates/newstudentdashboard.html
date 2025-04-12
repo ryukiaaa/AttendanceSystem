@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/newstudentdashboard.css' %}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <img src="{% static 'images/Cebu_Institute_of_Technology_University_logo_2.png' %}" alt="CITU Logo" class="logo">
+                <div class="navbar-title">
+                    <h1>WILDCATS C.A.G.E</h1>
+                    <p>CHECKING ATTENDANCE GETS EASY</p>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <ul>
+                    <li><a href="{% url 'index' %}" class="active">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="/student/profile/">PROFILE</a></li> 
+                    <li><a href="{% url 'index' %}" class="logout">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard-content">
+            <h2>Student Dashboard</h2>
+            <p>Track your attendance and upcoming classes</p>
+
+            <div class="summary-cards">
+                <div class="card my-classes">
+                    <h3>My Classes</h3>
+                    <p>0</p>
+                    <p>Enrolled this semester</p>
+                </div>
+                <div class="card attendance-rate">
+                    <h3>Attendance Rate</h3>
+                    <p>0%</p>
+                    <p>Overall attendance</p>
+                </div>
+                <div class="card missed-class">
+                    <h3>Missed Classes</h3>
+                    <p>0</p>
+                    <p>This semester</p> <!-- Corrected label -->
+                </div>
+                <div class="card attendance-streak"> <!-- Added attendance-streak class -->
+                    <h3>Attendance Streak</h3>
+                    <p>0 days</p> <!-- Placeholder value -->
+                    <p>Current Streak</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="schedule-attendance-section">
+            <div class="schedule-attendance">
+                <div class="schedule-section">
+                    <div class="schedule">
+                        <div class="section-header">
+                            <h3>TODAY'S SCHEDULE</h3>
+                        </div>
+                        <div class="content-area">
+                            <div class="no-classes">
+                                <img src="{% static 'images/Vector_1387.svg' %}" alt="No Classes Scheduled">
+                                <p>No Classes Scheduled</p>
+                                <p>Once you enroll in classes, your schedule will appear here</p>
+                                <button>Add Your Registered Class</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="attendance-record">
+                        <div class="section-header">
+                            <h3>ATTENDANCE RECORD</h3>
+                        </div>
+                        <div class="content-area">
+                            <div class="no-record">
+                                <img src="{% static 'images/Vector_1198.svg' %}" alt="No Attendance Record">
+                                <p>No Attendance Record</p>
+                                <p>Your attendance records will be displayed here once you start attending classes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="qr-attendance-section">
+                    <div class="qr-scanner">
+                        <h3>QR Attendance Scanner</h3>
+                        <img src="{% static 'images/Vector_1306.svg' %}" alt="QR Code">
+                        <button>Scan QR Code</button>
+                        <p>Scan the QR code displayed by your instructor to mark your attendance for this class session</p>
+                    </div>
+                    
+                    <div class="upcoming-tests">
+                        <div class="section-header">
+                            <h3>Upcoming Tests & Assignment</h3>
+                        </div>
+                        <div class="content-area">
+                            <ul>
+                                <li>Getting Started</li>
+                                <li>Complete Your Profile</li>
+                                <li>Enroll in Classes</li>
+                                <li>Scan Attendance QR</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <img src="{% static 'images/wildcatlogo.png' %}" alt="Wildcats Logo" class="footer-logo">
+            <p>Making attendance management simple and efficient for educational institutions.</p>
+            <div class="quick-links">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="for-users">
+                <h3>FOR USERS</h3>
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="connect-with-us">
+                <h3>CONNECT WITH US</h3>
+                <ul>
+                    <li><a href="#"><img src="{% static 'images/Vector_1195.svg' %}" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="{% static 'images/Vector_1197.svg' %}" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

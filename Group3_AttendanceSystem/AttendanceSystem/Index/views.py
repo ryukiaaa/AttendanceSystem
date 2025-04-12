@@ -94,7 +94,7 @@ class Login(View):
                 try:
                     role = user.userprofile.role
                     if role == 'student':
-                        return redirect('/student/dashboard/')  # Student dashboard URL
+                        return redirect('/student/newdashboard/')  # Student dashboard URL
                     elif role == 'teacher':
                         return redirect('/teacher/dashboard')  # Teacher dashboard URL
                     else:

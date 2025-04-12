@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path('', include('Index.urls')),
     path('student/', include('Student.urls')),
     path('teacher/', include('Teacher.urls')),
+    path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'), # Update logout redirect to index
 ]
