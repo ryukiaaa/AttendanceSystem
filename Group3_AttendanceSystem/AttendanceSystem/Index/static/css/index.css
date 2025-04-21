@@ -8,6 +8,20 @@ main
     background-color: #CCC;
 }
 
+nav ul li:first-child a
+{
+	color: #000;
+	text-decoration: underline;
+	text-decoration-color: #78081C;
+	text-decoration-thickness: 0.25vw;
+	text-underline-offset: 0.5vw;
+}
+
+nav ul li:first-child a:hover
+{
+	color: #FFF;
+}
+
 .row
 {
     display: grid;
@@ -75,7 +89,7 @@ main
     object-fit: cover;
 }
 
-.rowtxt h2, rowtxt2 h2
+.rowtxt h2, .rowtxt2 h2
 {
     font-size: 2vw;
 }
