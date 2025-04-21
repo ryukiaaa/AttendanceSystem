@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> CAGE Teacher </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/teacher_header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create_class.css' %}">
+  </head>
+
+  <body>
+    <!-- HEADER + NAV -->
+    {% include 'teacher_header.html' %}
+
+    <!-- MAIN -->
+    <main>
+      <form method="POST">
+        {% csrf_token %}
+
+        <h1> Create New Class </h1>
+        <h2> Assigned to: {{ teacher.first_name }} {{ teacher.last_name }} </h2>
+
+        <label> Class Name </label>
+        {{ form.class_name }}
+
+        <label> Class Code </label>
+        {{ form.class_code }}
+
+        <label> Join Code </label>
+        {{ form.join_code }}
+
+        <label> Building </label>
+        {{ form.building_name }}
+
+        <label> Capacity </label>
+        {{ form.capacity }}
+
+        <label class="schedulelabel"> Schedule 1 </label>
+        <div class="schedule">
+            <div class="schedulecolumn">
+                <label> Day </label>
+                {{ form.schedule1_day }}
+            </div>
+
+            <div class="schedulecolumn">
+                <label> Start </label>
+                {{ form.schedule1_start }}
+            </div>
+
+            <div class="schedulecolumn">
+                <label> End </label>
+                {{ form.schedule1_end }}
+            </div>
+        </div>
+
+        <label class="schedulelabel"> Schedule 2 </label>
+        <div class="schedule">
+            <div class="schedulecolumn">
+                <label> Day </label>
+                {{ form.schedule2_day }}
+            </div>
+
+            <div class="schedulecolumn">
+                <label> Start </label>
+                {{ form.schedule2_start }}
+            </div>
+
+            <div class="schedulecolumn">
+                <label> End </label>
+                {{ form.schedule2_end }}
+            </div>
+        </div>
+
+        <div id="buttons">
+            <a href="{% url 'teacher:dashboard' %}"> <input id="back" type="button" value="Back"> </a>
+            <a> <input id="createaccount" type="submit" value="Create Class"> </a>
+        </div>
+      </form>
+    </main>
+
+    <!-- FOOTER -->
+    {% include 'footer.html' %}
+  </body>
+</html>
