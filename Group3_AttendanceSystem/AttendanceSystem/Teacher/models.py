@@ -1,56 +1,55 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Importing model 'Student' causes an ImportError:
-# "cannot import name 'Student' from partially initialized module 'Student.models'
-# (most likely due to a circular import)"
-# RESOLVED: On line 47, used 'Appname.Modelname' as parameter instead
-# from Student.models import Student
-
 # Create your models here.
+
 class Teacher(User):
-    department = models.CharField(max_length=100)
+    department = models.CharField(max_length=20)
 
-    # Makes sure the password is hashed in the database when a new teacher is created
-    def save(self, *args, **kwargs):
+    class Meta:
+        db_table = 'tbl_teachers'
+        verbose_name = 'teacher'
+        verbose_name_plural = 'teachers'
+
+    # Hash the password in the database upon creation of a new student
+    def save(self):
         self.set_password(self.password)
-        super().save(*args, **kwargs)
+        super().save()
 
-    # Show firstname and lastname in admin site
+    # Changed displayed model name in admin site
     def __str__(self):
-        # Get inherited fields
         first_name = super(User, self).first_name
         last_name = super(User, self).last_name
 
         return first_name + ' ' + last_name
-
-    # Change displayed model name in admin site
-    class Meta:
-        verbose_name =  'teacher'
-        verbose_name_plural = 'teachers'
 
 
 class Class(models.Model):
     class_id = models.BigAutoField(primary_key=True)
     class_name = models.CharField(max_length=100)
     class_code = models.CharField(max_length=20, unique=True)
-    join_code = models.CharField(max_length=50, unique=True) # Could be converted to a QR code (maybe?)
+    join_code = models.CharField(max_length=20, unique=True)
     building_name = models.CharField(max_length=100)
     capacity = models.PositiveIntegerField()
-    schedule1 = models.CharField(max_length=100)
-    schedule2 = models.CharField(max_length=100)
+    schedule1_day = models.CharField(max_length=20)
+    schedule1_start = models.TimeField()
+    schedule1_end = models.TimeField()
+    schedule2_day = models.CharField(max_length=20)
+    schedule2_start = models.TimeField()
+    schedule2_end = models.TimeField()
 
     # ONE-TO-MANY RELATIONSHIP: A teacher handles many classes
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='handles')
 
-    # MANY-TO-MANY RELATIONSHIP: A class has many students and students join many classes
+    # MANY-TO-MANY RELATIONSHIP: A class has many students and students can join many classes
     students = models.ManyToManyField('Student.Student', through='Student.Attendance', related_name='joins')
+
+    # Change displayed model name in admin site
+    class Meta:
+        db_table = 'tbl_classes'
+        verbose_name = 'class'
+        verbose_name_plural = 'classes'
 
     # Show class code in the admin site
     def __str__(self):
         return self.class_code
-
-    # Change displayed model name in admin site
-    class Meta:
-        verbose_name = 'class'
-        verbose_name_plural = 'classes'
