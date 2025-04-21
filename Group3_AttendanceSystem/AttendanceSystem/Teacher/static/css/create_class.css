@@ -1,0 +1,144 @@
+/* Styles for create class page */
+
+main
+{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4vw;
+    padding-bottom: 6vw;
+    border-top: 0.2vw solid #78081C;
+}
+
+nav ul li:nth-child(4) a
+{
+	color: #000;
+	text-decoration: underline;
+	text-decoration-color: #78081C;
+	text-decoration-thickness: 0.25vw;
+	text-underline-offset: 0.5vw;
+}
+
+nav ul li:nth-child(4) a:hover
+{
+	color: #FFF;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 0 5vw;
+    border-radius: 10px;
+}
+
+form h1
+{
+    margin-bottom: 1vw;
+    align-self: center;
+    font-size: 2.5vw;
+    color: #78081C;
+}
+
+form h2
+{
+    margin-bottom: 4vw;
+    align-self: center;
+    font-size: 1.3vw;
+    color: #F7C301;
+    text-decoration: underline;
+	text-decoration-thickness: 0.15vw;
+	text-underline-offset: 1vw;
+}
+
+form label
+{
+    margin-bottom: 0.5vw;
+    font-weight: 600;
+    font-size: 1.2vw;
+}
+
+.formfield
+{
+    margin-bottom: 2vw;
+    padding: 0.6vw;
+    font-size: 1vw;
+    border: 0.1vw solid #666;
+    border-radius: 0.5vw;
+    background-color: #EEE;
+}
+
+.schedulelabel
+{
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+}
+
+.schedule
+{
+    display: flex;
+    margin-bottom: 1vw;
+    padding: 1.5vw;
+    border: 0.1vw solid #666;
+    border-radius: 0.5vw;
+    gap: 1vw;
+}
+
+.schedulecolumn
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+.schedulecolumn label
+{
+    font-weight: 400;
+}
+
+.schedulecolumn select, .schedulecolumn input
+{
+    width: 8vw;
+    height: 2vw;
+    padding-left: 0.5vw;
+    border: 0.1vw solid #666;
+    font-size: 1vw;
+    background-color: #EEE;
+}
+
+#buttons
+{
+    display: flex;
+    margin-top: 4vw;
+    align-self: flex-end;
+    align-items: center;
+    gap: 2vw;
+}
+
+#back
+{
+    width: fit-content;
+    padding: 0.6vw 2vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2vw;
+    background-color: #F7C301;
+    color: #78081C;
+}
+
+#createaccount
+{
+    width: fit-content;
+    padding: 0.6vw 2vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2vw;
+    background-color: #78081C;
+    color: #F7C301;
+}
