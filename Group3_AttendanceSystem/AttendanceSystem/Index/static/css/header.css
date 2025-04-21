@@ -73,17 +73,3 @@ header a
 	font-weight: 600;
 	color: #999;
 }
-
-#current
-{
-	color: #000;
-	text-decoration: underline;
-	text-decoration-color: #78081C;
-	text-decoration-thickness: 2px;
-	text-underline-offset: 6px;
-}
-
-#current:hover
-{
-	color: #FFF;
-}
