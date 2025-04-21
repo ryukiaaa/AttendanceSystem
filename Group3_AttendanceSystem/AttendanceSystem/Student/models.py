@@ -2,53 +2,48 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class SubtypeTest(User):
-    year = models.IntegerField()
-    course = models.CharField(max_length=100)
-
-    def __str__(self):
-        first_name = super(User, self).first_name
-        last_name = super(User, self).last_name
-        return first_name + ' ' + last_name
-
 
 class Student(User):
-    course = models.CharField(max_length=50)
+    course = models.CharField(max_length=20)
     year = models.IntegerField()
 
-    # Makes sure the password is hashed in the database when a new student is created
-    def save(self, *args, **kwargs):
-        self.set_password(self.password)
-        super().save(*args, **kwargs)
+    class Meta:
+        db_table = 'tbl_students'
+        verbose_name = 'student'
+        verbose_name_plural = 'students'
 
-    # Show firstname and lastname in admin site
+    # Hash the password in the table upon creation of a new student
+    def save(self):
+        self.set_password(self.password)
+        super().save()
+
+    # Changed displayed model name in admin site
     def __str__(self):
-        # Get inherited fields
         first_name = super(User, self).first_name
         last_name = super(User, self).last_name
 
         return first_name + ' ' + last_name
-
-    # Change displayed model name in admin site
-    class Meta:
-        verbose_name =  'student'
-        verbose_name_plural = 'students'
 
 
 class Attendance(models.Model):
-    # When an attendance record is created, the date is automatically set to current date
+    # Automatically set the date to now upon creation of a new attendance record
     date = models.DateField(auto_now_add=True)
     time_in = models.TimeField()
     time_out = models.TimeField(null=True, blank=True)
 
-    # ASSOCIATION: Many students to many classes
+    # ASSOCIATIVE RELATIONSHIP: Many students belong to many classes
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     joined_class = models.ForeignKey('Teacher.Class', on_delete=models.CASCADE)
 
-    # Avoid duplicate (same student on the same class and date) attendance records
     class Meta:
+        db_table = 'tbl_attendances'
+        verbose_name = 'attendance'
+        verbose_name_plural = 'attendances'
+
+        # Prevent duplicate attendance records from being created
         unique_together = ('student', 'joined_class', 'date')
 
     # Show attendance details in admin site
     def __str__(self):
-        return f"{self.student} - {self.joined_class} on {self.date}"
+        return f"{self.joined_class} - {self.student} - {self.date}"
+
