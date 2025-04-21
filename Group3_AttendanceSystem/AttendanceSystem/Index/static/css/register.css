@@ -1,89 +1,98 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-    <title> Wildcats CAGE Register </title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/register.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-  </head>
+/* Styles for register page */
 
-  <body>
-    <!-- HEADER + NAV -->
-    <header>
-      <img src="{% static 'images/citu_logo.png' %}" alt="CIT-U Logo">
+main
+{
+    display: block;
+    width: 100%;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    background-color: #78081C;
+}
 
-      <div id="title">
-        <div id="wc"> WILDCATS CAGE </div>
-        <div id="cage"> CHECKING ATTENDANCE GETS EASY </div>
-      </div>
+nav ul li:nth-child(5) a
+{
+	color: #000;
+	text-decoration: underline;
+	text-decoration-color: #78081C;
+	text-decoration-thickness: 0.25vw;
+	text-underline-offset: 0.5vw;
+}
 
-      <nav>
-        <ul>
-          <li> <a href="{% url 'index' %}">Home</a> </li>
-          <li> <a href="{% url 'index' %}">About</a> </li>
-          <li> <a href="{% url 'index' %}">Contact</a> </li>
-          <li> <a href="{% url 'login' %}">Login</a> </li>
-          <li> <a id="current" href="{% url 'register' %}">Register</a> </li>
-        </ul>
-      </nav>
-    </header>
+nav ul li:nth-child(5) a:hover
+{
+	color: #FFF;
+}
 
-    <!-- MAIN -->
-    <main>
-      <div id="selectrole">
-        <img src="{% static 'images/citu_logo.png' %}" alt="CIT - U Logo">
-        <h1> WILDCATS CAGE </h1>
-        <h2> CHECKING ATTENDANCE GETS EASY </h2>
-        <hr/>
-        <h3> Select Your Role </h3>
-        <a href="{% url 'registerstudent' %}"> <button> Student </button> </a>
-        <p> or </p>
-        <a href="{% url 'registerteacher' %}"> <button> Teacher </button> </a>
-        <p> Already have an account? <a href="{% url 'login' %}"> Login </a> </p>
-      </div>
-    </main>
+#selectrole
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-top: 3vw;
+    padding-bottom: 4vw;
+    border-radius: 10px;
+    justify-self: center;
+    align-items: center;
+    row-gap: 1vw;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-    <footer>
-      <div>
-        <h3> WILDCATS CAGE </h3>
-        <p> Making attendance management simple<br/>and efficient for educational institutions. </p>
-      </div>
+#selectrole img
+{
+    width: 6vw;
+}
 
-      <div>
-        <h3> QUICK LINKS </h3>
-        <ul>
-          <li> <a>CIT-U Homepage</a> </li>
-          <li> <a>CIT-U Facebook</a> </li>
-          <li> <a>CCS Facebook</a> </li>
-        </ul>
-      </div>
+#selectrole h1
+{
+    font-size: 2vw;
+    color: #78081C;
+}
 
-      <div>
-        <h3> FOR USERS </h3>
-        <ul>
-          <li> <a>GitHub</a> </li>
-          <li> <a>Figma</a> </li>
-          <li> <a>Canva</a> </li>
-        </ul>
-      </div>
+#selectrole h2
+{
+    font-size: 1vw;
+    color: #F7C301;
+}
 
-      <div>
-        <h3> CONNECT WITH US </h3>
-        <ul>
-          <li> <a>Twitter</a> </li>
-          <li> <a>Instagram</a> </li>
-          <li> <a>Facebook</a> </li>
-        </ul>
-      </div>
+#selectrole hr
+{
+    width: 60%;
+    border-color: #F7C301;
+}
 
-      <div>
-        <p> &copy; 2025 - Wildcats CAGE - All rights reserved </p>
-      </div>
-    </footer>
-  </body>
-</html>
+#selectrole h3
+{
+    margin-top: 2vw;
+    margin-bottom: 0.5vw;
+    font-size: 1.2vw;
+    color: #78081C;
+}
+
+#selectrole button
+{
+    width: fit-content;
+    padding: 0.6vw 3vw;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1vw;
+    font-weight: 600;
+    color: #F7C301;
+    background-color: #78081C;
+}
+
+#selectrole p
+{
+    font-size: 1vw;
+}
+
+#selectrole p:last-child
+{
+    margin-top: 2vw;
+}
+
+#selectrole a
+{
+    color: #78081C;
+}
