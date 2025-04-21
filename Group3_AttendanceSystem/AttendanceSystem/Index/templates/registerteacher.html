@@ -8,30 +8,13 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/registerrole.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register_role.css' %}">
   </head>
 
   <body>
     <!-- HEADER + NAV -->
-    <header>
-      <img src="{% static 'images/citu_logo.png' %}" alt="CIT-U Logo">
-
-      <div id="title">
-        <div id="wc"> WILDCATS CAGE </div>
-        <div id="cage"> CHECKING ATTENDANCE GETS EASY </div>
-      </div>
-
-      <nav>
-        <ul>
-          <li> <a href="{% url 'index' %}">Home</a> </li>
-          <li> <a href="{% url 'index' %}">About</a> </li>
-          <li> <a href="{% url 'index' %}">Contact</a> </li>
-          <li> <a href="{% url 'login' %}">Login</a> </li>
-          <li> <a id="current" href="{% url 'register' %}">Register</a> </li>
-        </ul>
-      </nav>
-    </header>
+    {% include 'header.html' %}
 
     <!-- MAIN -->
     <main>
@@ -46,17 +29,17 @@
 
           <div id="showerror">
             {% for message in messages %}
-              <p> {{message}} </p>
+              <p> {{ message }} </p>
             {% endfor %}
           </div>
 
-          {{form.username}}
-          {{form.first_name}}
-          {{form.last_name}}
-          {{form.email}}
-          {{form.password}}
-          {{form.password2}}
-          {{form.department}}
+          {{ form.username }}
+          {{ form.first_name }}
+          {{ form.last_name }}
+          {{ form.email }}
+          {{ form.password }}
+          {{ form.password2 }}
+          {{ form.department }}
 
           <div id="buttons">
             <a href="{% url 'register' %}"> <input id="back" type="button" value="Back"> </a>
@@ -68,42 +51,6 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-      <div>
-        <h3> WILDCATS CAGE </h3>
-        <p> Making attendance management simple<br/>and efficient for educational institutions. </p>
-      </div>
-
-      <div>
-        <h3> QUICK LINKS </h3>
-        <ul>
-          <li> <a>CIT-U Homepage</a> </li>
-          <li> <a>CIT-U Facebook</a> </li>
-          <li> <a>CCS Facebook</a> </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3> FOR USERS </h3>
-        <ul>
-          <li> <a>GitHub</a> </li>
-          <li> <a>Figma</a> </li>
-          <li> <a>Canva</a> </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3> CONNECT WITH US </h3>
-        <ul>
-          <li> <a>Twitter</a> </li>
-          <li> <a>Instagram</a> </li>
-          <li> <a>Facebook</a> </li>
-        </ul>
-      </div>
-
-      <div>
-        <p> &copy; 2025 - Wildcats CAGE - All rights reserved </p>
-      </div>
-    </footer>
+    {% include 'footer.html' %}
   </body>
 </html>
