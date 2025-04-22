@@ -7,6 +7,7 @@ class Student(User):
     student_id = models.CharField(max_length=20, primary_key=True)
     course = models.CharField(max_length=100)
     year_level = models.PositiveIntegerField()
+    joined_class = models.ManyToManyField(Class, through="Attendance")
 
     def __str__(self):
         return f"{self.student_id}-{self.last_name}"

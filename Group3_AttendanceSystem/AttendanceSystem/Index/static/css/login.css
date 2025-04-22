@@ -1,0 +1,115 @@
+/* Styles for login page */
+
+main
+{
+    display: block;
+    width: 100%;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    background-color: #78081C;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-top: 3vw;
+    padding-bottom: 4vw;
+    border-radius: 10px;
+    justify-self: center;
+    align-items: center;
+    row-gap: 1vw;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+nav ul li:nth-child(4) a
+{
+	color: #000;
+	text-decoration: underline;
+	text-decoration-color: #78081C;
+	text-decoration-thickness: 0.25vw;
+	text-underline-offset: 0.5vw;
+}
+
+nav ul li:nth-child(4) a:hover
+{
+	color: #FFF;
+}
+
+form img
+{
+    width: 6vw;
+}
+
+form h1
+{
+    font-size: 2vw;
+    color: #78081C;
+}
+
+form h2
+{
+    font-size: 1vw;
+    color: #F7C301;
+}
+
+form hr
+{
+    width: 60%;
+    border-color: #F7C301;
+}
+
+form h3
+{
+    margin-top: 1vw;
+    font-size: 1.3vw;
+    color: #78081C;
+}
+
+#showerror
+{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1vw;
+    color: red;
+}
+
+.formfield
+{
+    width: 20vw;
+    padding: 0.8vw;
+    padding-left: 1.5vw;
+    border: 1px solid #666;
+    border-radius: 10px;
+    font-size: 1vw;
+    background-color: #EEE;
+}
+
+#submit
+{
+    width: fit-content;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding: 0.6vw 3vw;
+    border: none;
+    border-radius: 6px;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #78081C;
+    color: #F7C301;
+}
+
+form p
+{
+    font-size: 1vw;
+}
+
+form a
+{
+    color: #78081C;
+}

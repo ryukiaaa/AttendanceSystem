@@ -1,88 +1,48 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
+  <head>
+    <title> Wildcats CAGE Login </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #800000; /* Golden yellow background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            background: #F7C301; /* Slightly darker yellow for contrast */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            text-align: center;
-        }
-        .logo {
-            width: 100px; /* Adjust size as needed */
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #800000; /* Maroon */
-        }
-        input[type="text"], input[type="password"] {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .btn {
-            background-color: #800000;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #a00000;
-        }
-        .links {
-            margin-top: 10px;
-        }
-        .links a {
-            color: #800000;
-            text-decoration: none;  
-            font-size: 14px;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-{% load static %}
-    <div class="container">
-        <!-- Logo Image -->
-        <img src="{% static 'images/citu_logo.png' %}" alt="CIT Logo" class="logo">
-        
+    <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
 
+  <body>
+    <!-- HEADER + NAV -->
+    {% include 'header.html' %}
+
+    <!-- MAIN -->
+    <main>
         <form method="POST">
             {% csrf_token %}
-            <input type="text" placeholder="Username" required><br>
-            <input type="password" placeholder="Password" required><br>
-            <button type="submit" class="btn">Login</button>
+
+            <img src="{% static 'images/citu_logo.png' %}" alt="CIT - U Logo">
+            <h1> WILDCATS CAGE </h1>
+            <h2> CHECKING ATTENDANCE GETS EASY </h2>
+            <hr/>
+            <h3> User Login </h3>
+
+            <div id="showerror">
+              {% for message in messages %}
+                <p> {{message}} </p>
+              {% endfor %}
+            </div>
+
+            <input class="formfield" type="text" name="username" placeholder="Username">
+            <input class="formfield" type="password" name="password" placeholder="Password">
+
+            <input id="submit" type="submit" value="Login">
+
+            <p> Don't have an account? <a href="{% url 'register' %}"> Register </a></p>
         </form>
-        <div class="links">
-            <p><a href="#">Forgot Password?</a></p>
-            <p><a href="register">Register</a></p>
-        </div>
-    </div>
-</body>
+    </main>
+
+    <!-- FOOTER -->
+    {% include 'footer.html' %}
+  </body>
 </html>

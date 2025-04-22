@@ -1,0 +1,19 @@
+{% load static %}
+<header>
+    <img src="{% static 'images/citu_logo.png' %}" alt="CIT-U Logo">
+
+    <div id="title">
+        <div id="wc"> WILDCATS CAGE </div>
+        <div id="cage"> CHECKING ATTENDANCE GETS EASY </div>
+    </div>
+
+    <nav>
+        <ul>
+          <li> <a href="{% url 'home' %}">Home</a> </li>
+          <li> <a href="{% url 'home' %}">About</a> </li>
+          <li> <a href="{% url 'home' %}">Contact</a> </li>
+          <li> <a href="{% url 'login' %}">Login</a> </li>
+          <li> <a href="{% url 'register' %}">Register</a> </li>
+        </ul>
+    </nav>
+</header>

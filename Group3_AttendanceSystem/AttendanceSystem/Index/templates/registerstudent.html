@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title> CAGE Student Registration </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registerrole.css' %}">
+  </head>
+
+  <body>
+    <!-- HEADER + NAV -->
+    {% include 'header.html' %}
+
+    <!-- MAIN -->
+    <main>
+        <form method="POST">
+          {% csrf_token %}
+
+          <img src="{% static 'images/citu_logo.png' %}" alt="CIT - U Logo">
+          <h1> WIDLCATS CAGE </h1>
+          <h2> CHECKING ATTENDANCE GETS EASY </h2>
+          <hr/>
+          <h3> Student Registration </h3>
+
+          <div id="showerror">
+            {% for message in messages %}
+              <p> {{ message }} </p>
+            {% endfor %}
+          </div>
+
+          {{ form.username }}
+          {{ form.first_name }}
+          {{ form.last_name }}
+          {{ form.email }}
+          {{ form.password }}
+          {{ form.password2 }}
+          {{ form.course }}
+          {{ form.year }}
+
+          <div id="buttons">
+            <a href="{% url 'register' %}"> <input id="back" type="button" value="Back"> </a>
+            <a> <input id="createaccount" type="submit" value="Create Account"> </a>
+          </div>
+
+          <p id="login"> Already have an account? <a href="{% url 'login' %}"> Login </a> </p>
+        </form>
+    </main>
+
+    <!-- FOOTER -->
+    {% include 'footer.html' %}
+  </body>
+</html>

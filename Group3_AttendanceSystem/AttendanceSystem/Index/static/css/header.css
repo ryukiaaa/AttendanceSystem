@@ -1,0 +1,75 @@
+/* Styles for header and nav */
+
+header
+{
+	display: grid;
+	width: 96%;
+	height: 5vw;
+	margin: 0.5vw auto;
+	grid-template-columns: 6% 39% 55%;
+	grid-template-rows: 100%;
+}
+
+header img
+{
+	width: 5vw;
+}
+
+#wc
+{
+	width: 100%;
+	padding-top: 0.5vw;
+	padding-left: 1.2vw;
+	font-size: 1.8vw;
+	font-weight: 600;
+	color: #78081C;
+}
+
+#cage
+{
+	width: 100%;
+	padding-top: 0.2vw;
+	padding-left: 1.2vw;
+	font-size: 1.2vw;
+	font-weight: 600;
+	color: #F7C301;
+}
+
+header nav
+{
+	display: flex;
+	width: 100%;
+	font-size: 1.2vw;
+}
+
+header ul
+{
+	display: flex;
+	column-gap: 3vw;
+	list-style-type: none;
+	justify-content: center;
+	align-items: center;
+}
+
+header li
+{
+	padding: 0.6vw;
+	border-radius: 10px;
+}
+
+header li:hover
+{
+	background-color: #78081C;
+}
+
+header li:hover a
+{
+	color: #FFF;
+}
+
+header a
+{
+    text-decoration: none;
+	font-weight: 600;
+	color: #999;
+}

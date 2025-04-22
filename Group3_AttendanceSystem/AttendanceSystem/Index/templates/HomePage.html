@@ -1,22 +1,53 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-<head>
+  <head>
+    <title> Wildcats CAGE </title>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Attendance Checker
-<form METHOD="POST">
-    {% csrf_token %}
-    <button type="submit" name="action" value="login">
-    Login
-    </button>
-    <button type="submit" name="action" value="register">
-    Register
-    </button>
-</form>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/citu_logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  </head>
 
+  <body>
+    <!-- HEADER + NAV -->
+    {% include 'header.html' %}
 
+    <!-- MAIN -->
+    <main>
+      <!-- Cards -->
+      <div class="row">
+        <div class="rowtxt">
+          <h2> GET YOUR CLASSES STARTED </h2>
+          <p> Save time by recording student attendance in an instant </p>
+          <a href="{% url 'register' %}"> <button> TRY IT! </button> </a>
+        </div>
+        <img class="rowimg" src="{% static 'images/index_img1.png' '%}" alt="Classroom with students raising hands">
+      </div>
 
-</body>
+      <div class="row">
+        <img class="rowimg" src="{% static 'images/index_img2.png' %}" alt="Teacher looking at laptop screen">
+        <div class="rowtxt2">
+          <h2> NEVER LOSE TRACK </h2>
+          <p> Take a look at how your classes are doing — anytime, anywhere </p>
+          <a href="{% url 'registerteacher' %}"> <button> FOR TEACHERS </button> </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="rowtxt">
+          <h2> LET YOUR PRESENCE BE FELT </h2>
+          <p> With a single tap or click, you are now ready to take on<br>another school day </p>
+          <a href="{% url 'registerstudent' %}"> <button> FOR STUDENTS </button> </a>
+        </div>
+        <img class="rowimg" src="{% static 'images/index_img3.png' %}" alt="Student checking phone">
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    {% include 'footer.html' %}
+  </body>
 </html>
