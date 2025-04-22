@@ -118,8 +118,10 @@ header {
 
 /* Main Content Styles */
 .main-content {
+    transform: scale(1.4) !important;
+    position: relative;
+    top: 300px;
     flex: 1;
-    padding: 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -160,7 +162,7 @@ header {
 }
 
 .stat-card.maroon {
-    background-color: #852133;
+    background-color: #78081C;
     color: #FFFFFF;
 }
 
@@ -231,7 +233,7 @@ header {
 }
 
 .section-header.maroon {
-    background-color: #852133;
+    background-color: #78081C;
 }
 
 .section-header h2 {
@@ -290,7 +292,7 @@ header {
 }
 
 .add-class-btn {
-    background-color: #852133;
+    background-color: #78081C;
     color: #FFFFFF;
     border: none;
     padding: 8px 15px;
@@ -315,7 +317,7 @@ header {
 }
 
 .qr-header {
-    background-color: #852133;
+    background-color: #78081C;
     padding: 10px;
     text-align: center;
 }
@@ -364,11 +366,11 @@ header {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #852133;
+    color: #78081C;
 }
 
 .generate-qr-btn {
-    background-color: #852133;
+    background-color: #78081C;
     color: #FFFFFF;
     border: none;
     padding: 8px 15px;
@@ -390,7 +392,7 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 15px;
-    background-color: #852133;
+    background-color: #78081C;
 }
 
 .quick-actions h3 {
@@ -431,6 +433,8 @@ footer {
     color: #000;
     padding: 30px 0;
     width: 100%;
+    position: relative;
+    top: 480px;
     display: flex;
     justify-content: center;
     align-items: center;
