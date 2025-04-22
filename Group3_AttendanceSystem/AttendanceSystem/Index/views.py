@@ -62,10 +62,50 @@ def login_role_view(request):
 
 
 def login_student_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        # Check if user exists
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            # Check if user has a student role
+            try:
+                if user.userprofile.role == 'student':
+                    login(request, user)
+                    return redirect('/student/newdashboard/')
+                else:
+                    messages.error(request, 'This account is not registered as a student.')
+            except Exception as e:
+                messages.error(request, f'User profile error: {str(e)}')
+        else:
+            messages.error(request, 'Invalid username or password')
+    
     return render(request, 'loginstudent.html')
 
 
 def login_teacher_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        # Check if user exists
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            # Check if user has a teacher role
+            try:
+                if user.userprofile.role == 'teacher':
+                    login(request, user)
+                    return redirect('/teacher/dashboard')
+                else:
+                    messages.error(request, 'This account is not registered as a teacher.')
+            except Exception as e:
+                messages.error(request, f'User profile error: {str(e)}')
+        else:
+            messages.error(request, 'Invalid username or password')
+    
     return render(request, 'loginteacher.html')
 
 

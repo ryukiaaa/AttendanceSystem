@@ -1,10 +1,207 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | WILDCATS C.A.G.E</title>
+    <link rel="stylesheet" href="{% static 'css/teacherdashboard.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
- Initial Teacher Dashboard
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'images/wildcatlogo.png' %}" alt="WILDCATS Logo">
+            <div class="logo-text">
+                <h1>WILDCATS C.A.G.E</h1>
+                <p>CHECKING ATTENDANCE GETS EASY</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">CONTACT</a>
+            <a href="#">PROFILE</a>
+        </div>
+        <button class="logout-btn">Log Out</button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <h1 class="dashboard-title">Teacher Dashboard</h1>
+        <p class="dashboard-subtitle">Welcome back! Here's an overview of your classes and attendance records.</p>
+
+        <!-- STATISTICS CARDS -->
+        <div class="stats-container">
+            <div class="stat-card classes">
+                <h3>Total Classes</h3>
+                <h2>5</h2>
+                <p>Active classes this semester</p>
+            </div>
+            <div class="stat-card students">
+                <h3>Total Students</h3>
+                <h2>120</h2>
+                <p>Enrolled in your classes</p>
+            </div>
+            <div class="stat-card avg-attendance">
+                <h3>Average Attendance</h3>
+                <h2>87%</h2>
+                <p>Across all classes</p>
+            </div>
+            <div class="stat-card today-attendance">
+                <h3>Today's Attendance</h3>
+                <h2>92%</h2>
+                <p>Students present today</p>
+            </div>
+        </div>
+
+        <!-- CLASSES SECTION -->
+        <div class="section-header">
+            <h2>CLASSES</h2>
+        </div>
+        <div class="classes-container">
+            <div class="class-card">
+                <img src="{% static 'images/class_placeholder.jpeg' %}" alt="Class Image">
+                <div class="class-card-content">
+                    <h3>CSIT321-001</h3>
+                    <p>Application Development</p>
+                    <p>3:00 - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="class-card">
+                <img src="{% static 'images/class_placeholder.jpeg' %}" alt="Class Image">
+                <div class="class-card-content">
+                    <h3>CSIT327-002</h3>
+                    <p>Information Management 2</p>
+                    <p>1:00 - 3:00 PM</p>
+                </div>
+            </div>
+            <div class="add-class-card">
+                <div class="add-class-icon">
+                    <span>+</span>
+                </div>
+                <h3>Add Class</h3>
+                <p>Create a new class for this semester</p>
+            </div>
+        </div>
+
+        <!-- QR CODE SECTION -->
+        <div class="qr-code-container">
+            <h3>Attendance QR Code</h3>
+            <p>Information Management 2</p>
+            <p>May 15, 2023 (1:00 PM)</p>
+            <div class="qr-code-img">
+                <img src="{% static 'images/qr_placeholder.png' %}" alt="QR Code">
+            </div>
+            <button class="generate-qr-btn">Generate QR Code</button>
+            <p class="qr-instructions">Generate a QR code for students to scan and mark their attendance for this class session. The QR code will expire after 15 minutes.</p>
+        </div>
+
+        <!-- ATTENDANCE RECORD -->
+        <div class="section-header">
+            <h2>ATTENDANCE RECORD</h2>
+        </div>
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>CLASS NAME</th>
+                    <th>SESSIONS</th>
+                    <th>PRESENT</th>
+                    <th>ABSENT</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Web Development</td>
+                    <td>10</td>
+                    <td class="present-count">10</td>
+                    <td class="absent-count">2</td>
+                    <td><span class="status active">Active</span></td>
+                    <td class="actions-cell"><button class="actions-btn">...</button></td>
+                </tr>
+                <tr>
+                    <td>Java OOP</td>
+                    <td>10</td>
+                    <td class="present-count">10</td>
+                    <td class="absent-count">3</td>
+                    <td><span class="status active">Active</span></td>
+                    <td class="actions-cell"><button class="actions-btn">...</button></td>
+                </tr>
+                <tr>
+                    <td>Quality Assurance</td>
+                    <td>10</td>
+                    <td class="present-count">10</td>
+                    <td class="absent-count">5</td>
+                    <td><span class="status active">Active</span></td>
+                    <td class="actions-cell"><button class="actions-btn">...</button></td>
+                </tr>
+                <tr>
+                    <td>Information Sys 1</td>
+                    <td>10</td>
+                    <td class="present-count">10</td>
+                    <td class="absent-count">0</td>
+                    <td><span class="status active">Active</span></td>
+                    <td class="actions-cell"><button class="actions-btn">...</button></td>
+                </tr>
+                <tr>
+                    <td>Technopreneurship</td>
+                    <td>10</td>
+                    <td class="present-count">8</td>
+                    <td class="absent-count">0</td>
+                    <td><span class="status active">Active</span></td>
+                    <td class="actions-cell"><button class="actions-btn">...</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- QUICK ACTIONS -->
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-buttons">
+                <button class="action-btn">Export Report</button>
+                <button class="action-btn">Email Student</button>
+                <button class="action-btn">Upload Data</button>
+                <button class="action-btn">Settings</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <img src="{% static 'images/wildcatlogo.png' %}" alt="WILDCATS Logo" class="footer-logo">
+                <h3>WILDCATS C.A.G.E</h3>
+                <p>Making attendance management simple and efficient for educational institutions.</p>
+            </div>
+            <div>
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>FOR USERS</h3>
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>CONNECT WITH US</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

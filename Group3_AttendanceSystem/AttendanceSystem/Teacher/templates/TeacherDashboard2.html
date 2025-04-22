@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <!-- Include Tailwind CSS (Option 1: CDN - Easiest for quick setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Or link to your compiled CSS file (Option 2: Recommended for production) -->
+    <!-- <link href="{% static 'css/styles.css' %}" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Add custom styles or overrides here if needed */
+      /* You might want to define the custom colors from tailwind.config.js here if not using Tailwind directly */
+      body {
+        font-family: 'Inter', sans-serif; /* Example default font */
+      }
+      .font-poppins { font-family: 'Poppins', sans-serif; }
+      .font-inter { font-family: 'Inter', sans-serif; }
+      .font-arial { font-family: 'Arial Nova', Arial, sans-serif; }
+      .bg-primary { background-color: #78081C; }
+      .text-primary { color: #78081C; }
+      .bg-secondary { background-color: #F7C301; }
+      /* Add other custom styles based on tailwind.config.js or component specifics */
+    </style>
+</head>
+<body>
+    <div class="flex flex-col min-h-screen">
+        <!-- Header Placeholder -->
+        <header class="bg-gray-100 p-4">
+            <!-- Replace with your actual Header HTML -->
+            Header Content Goes Here
+        </header>
+
+        <main class="flex-grow max-w-7xl mx-auto px-8 py-4">
+            <div class="mt-8">
+                <div class="text-[24px] font-bold font-inter">Teacher Dashboard</div>
+                <div class="text-[15px] text-gray-800 font-inter mt-4 mb-8">
+                    Welcome back! Here's an overview of your classes and attendance records.
+                </div>
+
+                <!-- Stat Cards Section -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+                    <!-- StatCard 1 -->
+                    <div class="bg-primary text-white p-4 rounded-md shadow">
+                        <div class="text-sm font-medium">Total Classes</div>
+                        <div class="text-2xl font-bold">0</div>
+                        <div class="text-xs opacity-80">Active classes this semester</div>
+                    </div>
+                    <!-- StatCard 2 -->
+                    <div class="bg-yellow-400 text-black p-4 rounded-md shadow">
+                        <div class="text-sm font-medium">Total Students</div>
+                        <div class="text-2xl font-bold">0</div>
+                        <div class="text-xs opacity-80">Enrolled in your classes</div>
+                    </div>
+                    <!-- StatCard 3 -->
+                    <div class="bg-pink-200 text-black p-4 rounded-md shadow">
+                        <div class="text-sm font-medium">Average Attendance</div>
+                        <div class="text-2xl font-bold">0%</div>
+                        <div class="text-xs opacity-80">Across all classes</div>
+                    </div>
+                    <!-- StatCard 4 -->
+                    <div class="bg-gray-200 text-black p-4 rounded-md shadow">
+                        <div class="text-sm font-medium">Today's Attendance</div>
+                        <div class="text-2xl font-bold">0%</div>
+                        <div class="text-xs opacity-80">Students present today</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left Column -->
+                    <div class="col-span-2">
+                        <!-- Classes Section -->
+                        <div>
+                            <div class="border-b pb-2 mb-4">
+                                <h2 class="text-sm font-semibold text-gray-500 tracking-wider">CLASSES</h2>
+                            </div>
+                            <div class="bg-white border rounded-md mt-4 p-8 text-center">
+                                <!-- Empty State for Classes -->
+                                <div class="flex flex-col items-center">
+                                    <!-- Placeholder for PlusCircle Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#78081C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-circle mb-4"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                                    <div class="text-lg font-semibold mt-2">No Added Class Yet</div>
+                                    <div class="text-sm text-gray-600 mt-1">Create a new class for attendance tracking</div>
+                                    <button class="bg-primary text-white px-4 py-2 rounded mt-4 text-sm font-medium w-[164px]">
+                                        Add Your First Class
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attendance Record Section -->
+                        <div class="mt-10">
+                             <div class="border-b pb-2 mb-4">
+                                <h2 class="text-sm font-semibold text-gray-500 tracking-wider">ATTENDANCE RECORD</h2>
+                            </div>
+                            <div class="bg-white border rounded-md mt-4 p-8 text-center">
+                                <!-- Empty State for Attendance -->
+                                 <div class="flex flex-col items-center">
+                                     <!-- Placeholder for FileText Icon -->
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#78081C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text mb-4"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+                                    <div class="text-lg font-semibold mt-2">No Attendance Data</div>
+                                    <div class="text-sm text-gray-600 mt-1">Once you add classes and take attendance, you'll see the data here</div>
+                                    <!-- No action button here in the original -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-span-1 space-y-6">
+                        <!-- QRCodeSection Placeholder -->
+                        <div class="bg-white p-4 rounded-md shadow">
+                            <h3 class="font-semibold mb-2">QR Code Section</h3>
+                            <!-- Replace with actual QR Code Section HTML -->
+                            Placeholder content for QR Code.
+                        </div>
+
+                        <!-- QuickActionsSection Placeholder -->
+                        <div class="bg-white p-4 rounded-md shadow">
+                             <h3 class="font-semibold mb-2">Quick Actions</h3>
+                             <!-- Replace with actual Quick Actions Section HTML -->
+                            Placeholder content for Quick Actions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Placeholder -->
+        <footer class="bg-gray-100 p-4 mt-8">
+            <!-- Replace with your actual Footer HTML -->
+            Footer Content Goes Here
+        </footer>
+    </div>
+
+    <!-- Add any necessary JavaScript here -->
+    <!-- <script src="{% static 'js/main.js' %}"></script> -->
+</body>
+</html>

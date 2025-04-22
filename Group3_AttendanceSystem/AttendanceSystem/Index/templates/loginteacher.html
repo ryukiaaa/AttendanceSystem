@@ -32,7 +32,7 @@
             <h1>WILDCATS</h1>
             <h2>CHECKING ATTENDANCE GETS EASY</h2>
             <h3>Teacher Login</h3>
-            <form class="register-form" method="POST" action="{% url 'login' %}">
+            <form class="register-form" method="POST" action="{% url 'loginteacher' %}">
                 {% csrf_token %}
                 {% if messages %}
                 <div class="messages">
