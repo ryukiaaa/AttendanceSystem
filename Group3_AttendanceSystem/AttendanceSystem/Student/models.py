@@ -1,6 +1,7 @@
 from django.db import models
 from Index.models import User
 from Teacher.models import Class
+import uuid
 # Create your models here.
 
 class Student(User):
@@ -9,8 +10,14 @@ class Student(User):
     year_level = models.PositiveIntegerField()
     joined_class = models.ManyToManyField(Class, through="Attendance")
 
+    def save(self, *args, **kwargs):
+        if not self.student_id:
+            # Auto-generate a unique ID
+            self.student_id = str(uuid.uuid4())[:8]  # or any custom logic
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"{self.student_id}-{self.last_name}"
+        return f"{self.student_id}-{self.lastname}"
 
 
 class Attendance(models.Model):

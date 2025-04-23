@@ -28,9 +28,9 @@
           <h3> Student Registration </h3>
 
           <div id="showerror">
-            {% for message in messages %}
+            {% if massage %}
               <p> {{ message }} </p>
-            {% endfor %}
+            {% endif %}
           </div>
 
           {{ form.username }}
@@ -44,6 +44,7 @@
 
           <div id="buttons">
             <a href="{% url 'register' %}"> <input id="back" type="button" value="Back"> </a>
+            {% csrf_token %}
             <a> <input id="createaccount" type="submit" value="Create Account"> </a>
           </div>
 

@@ -25,7 +25,37 @@ class Login(View):
         return render(request, 'login.html')
 
     def post(self, request):
-        return redirect('student/dashboard')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            user = User.objects.get(username=username)
+
+            if user.password != password:
+                return render(request, 'login.html', {'message': 'Invalid password'})
+
+            if user.type == 'S':
+                try:
+                    student = Student.objects.get(username=username)
+                    request.session['user'] = username
+                    request.session['user_type'] = 'student'
+                    return redirect('studentDashboard')
+                except Student.DoesNotExist:
+                    return render(request, 'login.html', {'message': 'Student not found'})
+
+            elif user.type == 'T':
+                try:
+                    teacher = Teacher.objects.get(username=username)
+                    request.session['user'] = username
+                    request.session['user_type'] = 'teacher'
+                    return redirect('teacherDashboard')
+                except Teacher.DoesNotExist:
+                    return render(request, 'login.html', {'message': 'Teacher not found'})
+
+            else:
+                return render(request, 'login.html', {'message': 'Invalid user type'})
+
+        except User.DoesNotExist:
+            return render(request, 'login.html', {'message': 'User does not exist'})
 
 
 class Register(View):
@@ -46,11 +76,32 @@ class RegisterTeacher(View):
     def post(self, request):
         username = request.POST['username']
         password = request.POST['password']
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
+        firstname = request.POST['first_name']
+        lastname = request.POST['last_name']
         email = request.POST['email']
-        type = 'S'
-        return redirect('login')
+        type = 'T'
+
+        try:
+            userCheck = User.objects.filter(pk=username).exists()
+            if userCheck:
+                return render(request, 'registerteacher.html', {'form': self.form, 'message': 'user already exist'})
+            else:
+                department = request.POST['department']
+
+                Teacher.objects.create(
+                    username=username,
+                    password=password,
+                    firstname=firstname,
+                    lastname=lastname,
+                    email=email,
+                    type=type,
+                    department=department
+                )
+                return redirect('login')
+
+        except Exception as e:
+            print("Error:", e)
+            return render(request, 'registerteacher.html', {'form': self.form, 'message': e})
 
 
 class RegisterStudent(View):
@@ -68,29 +119,25 @@ class RegisterStudent(View):
         type = 'S'
 
         try:
-            userCheck = User.objects.get(pk=username).exist()
+            userCheck = User.objects.filter(pk=username).exists()
             if userCheck:
                 return render(request, 'registerstudent.html', {'form': self.form, 'message':'user already exist'})
             else:
                 course = request.POST['course']
-                year_level = request.POST['year_level']
+                year = request.POST['year']
 
-                user = User.objects.create(
+                Student.objects.create(
                     username=username,
                     password=password,
                     firstname=firstname,
                     lastname=lastname,
                     email=email,
-                    type=type
-                )
-
-                Student.objects.create(
-                    user_ptr=user,
+                    type=type,
                     course=course,
-                    year_level=year_level
+                    year_level=year
                 )
-                return redirect('studentDashboard')
+                return redirect('login')
 
         except Exception as e:
             print("Error:", e)
-            return render(request, 'registerstudent.html', {'form': self.form, 'message': 'error'})
+            return render(request, 'registerstudent.html', {'form': self.form, 'message': e})

@@ -1,0 +1,20 @@
+{% load static %}
+<header>
+    <img src="{% static 'images/citu_logo.png' %}" alt="CIT-U Logo">
+
+    <div id="title">
+        <div id="wc"> WILDCATS CAGE </div>
+        <div id="cage"> CHECKING ATTENDANCE GETS EASY </div>
+    </div>
+
+    <nav>
+        <ul>
+          <li> <a href="{% url 'teacherDashboard' %}">Dashboard</a> </li>
+          <li> <a href="{% url 'home' %}">Calendar</a> </li>
+          <li> <a href="{% url 'home' %}">Excuses</a> </li>
+          <li> <a href="{% url 'home' %}">Profile</a> </li>
+          &nbsp;
+          <li> <a href="{% url 'logout' %}">Logout</a> </li>
+        </ul>
+    </nav>
+</header>

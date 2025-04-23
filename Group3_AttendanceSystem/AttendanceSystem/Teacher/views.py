@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import Teacher
 
@@ -7,7 +7,13 @@ from .models import Teacher
 
 class Dashboard(View):
 
-
     def get(self,request):
-        teacher = Teacher.objects.get(pk=9034823)
-        return render(request, 'TeacherDashboard.html', {'firstname': teacher.lastname})
+        username = request.session.get('user')
+        teacher = Teacher.objects.get(username=username)
+        return render(request, 'TeacherDashboard.html',{'teacher': teacher})
+
+
+class Logout(View):
+    def get(self, request):
+        request.session.flush()
+        return redirect('login')
