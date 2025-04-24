@@ -28,9 +28,12 @@ def register_student_view(request):
             messages.success(request, 'Student account created successfully.')
             return redirect('loginrole')
         else:
-            messages.error(request, 'Please correct the errors below.')
+            # Remove the generic messages.error call here
+            # The template will now handle displaying specific errors
+            pass # Keep the rest of the logic
     else:
         form = forms.StudentRegisterForm()
+    # Ensure the form object is always passed to the template
     return render(request, 'registerstudent.html', {'form': form})
 
 
@@ -51,9 +54,12 @@ def register_teacher_view(request):
             messages.success(request, 'Teacher account created successfully.')
             return redirect('loginrole')
         else:
-            messages.error(request, 'Please correct the errors below.')
+            # Remove the generic messages.error call here
+            # The template will now handle displaying specific errors
+            pass # Keep the rest of the logic
     else:
         form = forms.TeacherRegisterForm()
+    # Ensure the form object is always passed to the template
     return render(request, 'registerteacher.html', {'form': form})
 
 
