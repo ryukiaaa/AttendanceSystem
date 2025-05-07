@@ -31,13 +31,13 @@ class Login(View):
             user = User.objects.get(username=username)
 
             if user.password != password:
-                return render(request, 'login.html', {'message': 'Invalid password'})
+                return render(request, 'login.html', {'message': 'Invalid credentials'})
 
             if user.type == 'S':
                 try:
                     student = Student.objects.get(username=username)
                     request.session['user'] = username
-                    request.session['user_type'] = 'student'
+                    request.session['type'] = 'student'
                     return redirect('studentDashboard')
                 except Student.DoesNotExist:
                     return render(request, 'login.html', {'message': 'Student not found'})
@@ -46,7 +46,7 @@ class Login(View):
                 try:
                     teacher = Teacher.objects.get(username=username)
                     request.session['user'] = username
-                    request.session['user_type'] = 'teacher'
+                    request.session['type'] = 'teacher'
                     return redirect('teacherDashboard')
                 except Teacher.DoesNotExist:
                     return render(request, 'login.html', {'message': 'Teacher not found'})
@@ -69,39 +69,25 @@ class Register(View):
 
 class RegisterTeacher(View):
     form = forms.CreateTeacherForm()
-
     def get(self,request):
         return render(request, 'registerteacher.html',{'form': self.form})
 
     def post(self, request):
+        teacher = forms.CreateTeacherForm(request.POST)
         username = request.POST['username']
-        password = request.POST['password']
-        firstname = request.POST['first_name']
-        lastname = request.POST['last_name']
-        email = request.POST['email']
-        type = 'T'
-
         try:
             userCheck = User.objects.filter(pk=username).exists()
             if userCheck:
                 return render(request, 'registerteacher.html', {'form': self.form, 'message': 'user already exist'})
             else:
-                department = request.POST['department']
-
-                Teacher.objects.create(
-                    username=username,
-                    password=password,
-                    firstname=firstname,
-                    lastname=lastname,
-                    email=email,
-                    type=type,
-                    department=department
-                )
-                return redirect('login')
-
+                if teacher.is_valid():
+                    teacher.save()
+                    return redirect('login')
+                else:
+                    return render(request, 'registerteacher.html', {'form': self.form, 'message': 'not valid'})
         except Exception as e:
             print("Error:", e)
-            return render(request, 'registerteacher.html', {'form': self.form, 'message': e})
+            return render(request, 'registerteacher.html', {'form': teacher, 'message': e})
 
 
 class RegisterStudent(View):

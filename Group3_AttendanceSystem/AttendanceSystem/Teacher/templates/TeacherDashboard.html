@@ -10,18 +10,105 @@
     <link rel="stylesheet" href="{% static 'css/teacher_header.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/teacher_dashboard.css' %}">
+      <style>
+
+        section
+        {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          margin-top: 2rem;
+          justify-content: flex-start;
+          margin:10px
+        }
+
+        .class-card
+        {
+          background-color: black;
+          border-radius: 12px;
+          padding: 1.5rem;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          width: 250px;
+          text-align: center;
+          transition: transform 0.2s ease;
+        }
+
+        .class-card:hover
+        {
+          transform: translateY(-5px);
+        }
+
+        .class-card h2
+        {
+          margin: 0 0 0.5rem;
+          font-size: 1.3rem;
+          color: #FFA500;
+        }
+
+        .class-card p
+        {
+          color: #FFA500;
+          margin-bottom: 1rem;
+        }
+
+        #view-btn
+        {
+          display: inline-block;
+          background-color: #FFA500;
+          color: #36454F;
+          padding: 0.5rem 1rem;
+          border-radius: 6px;
+          text-decoration: none;
+        }
+
+        .add-class
+        {
+          background-color: #e0f7fa;
+          border: 2px dashed #26c6da;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .add-class a
+        {
+          text-decoration: none;
+          color: #FFA500;
+        }
+
+        #plus-icon
+        {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #FFA500;
+        }
+    </style>
   </head>
 
   <body>
-    <!-- HEADER + NAV -->
     {% include 'teacher_header.html' %}
-
-    <!-- MAIN -->
     <main>
       <h1> Welcome teacher {{ teacher.firstname }} {{ teacher.lastname }}! </h1>
     </main>
 
-    <!-- FOOTER -->
-    {% include 'footer.html' %}
+    <section id="card-container">
+      {% for class in classlist %}
+    <div class="class-card">
+      <h2>{{ class.1 }}</h2>
+      <p>{{ class.4 }}</p>
+      <a href="{% url 'classList' class.0 %}" id="view-btn">View Class</a>
+    </div>
+    {% empty %}
+    <p>No classes assigned yet.</p>
+    {% endfor %}
+
+    <div class="class-card add-class">
+
+        <span id="plus-icon">＋</span>
+        <p>Add Class</p>
+
+    </div>
+    </section>
+
   </body>
 </html>

@@ -24,3 +24,72 @@ nav ul li:first-child a:hover
 {
 	color: #FFF;
 }
+
+section
+{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+}
+
+#class-card
+{
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+#class-card:hover
+{
+  transform: translateY(-5px);
+}
+
+#class-card h2
+{
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+#class-card p
+{
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+#view-btn
+{
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+#add-class
+{
+  background-color: #e0f7fa;
+  border: 2px dashed #26c6da;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#add-class a
+{
+  text-decoration: none;
+  color: #00796b;
+}
+
+#plus-icon
+{
+  font-size: 2.5rem;
+  font-weight: bold;
+}

@@ -1,15 +1,31 @@
-/* Styles for role registration page */
+/* Styles for login page */
 
 main
 {
     display: block;
     width: 100%;
-    padding-top: 2vw;
-    padding-bottom: 5vw;
-    background-color: #000;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    background-color: #2C2C2C;
+    min-height: 100vh;
 }
 
-nav ul li:nth-child(5) a
+form
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-top: 3vw;
+    padding-bottom: 4vw;
+    border-radius: 10px;
+    justify-self: center;
+    align-items: center;
+    row-gap: 1vw;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+nav ul li:nth-child(4) a
 {
 	color: #000;
 	text-decoration: underline;
@@ -18,24 +34,9 @@ nav ul li:nth-child(5) a
 	text-underline-offset: 0.5vw;
 }
 
-nav ul li:nth-child(5) a:hover
+nav ul li:nth-child(4) a:hover
 {
 	color: #FFF;
-}
-
-form
-{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    border-radius: 10px;
-    padding-top: 3vw;
-    padding-bottom: 4vw;
-    justify-self: center;
-    align-items: center;
-    row-gap: 1vw;
-    background-color: #FFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 form img
@@ -64,11 +65,11 @@ form hr
 form h3
 {
     margin-top: 1vw;
-    font-size: 1.2vw;
+    font-size: 1.3vw;
     color: #78081C;
 }
 
-.showerror
+#showerror
 {
     display: flex;
     flex-direction: column;
@@ -84,41 +85,17 @@ form h3
     padding: 0.8vw;
     padding-left: 1.5vw;
     border: 1px solid #666;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 1vw;
-    background-color: #DDD;
+    background-color: #EEE;
 }
 
-.buttons
-{
-    display: flex;
-    column-gap: 1vw;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
-}
-
-.buttons a
-{
-    text-decoration: none;
-}
-
-.back
+#submit
 {
     width: fit-content;
-    padding: 0.5vw 2vw;
-    border: none;
-    border-radius: 6px;
-    font-size: 1vw;
-    font-weight: 600;
-    cursor: pointer;
-    background-color: #F7C301;
-    color: #78081C;
-}
-
-.createaccount
-{
-    width: fit-content;
-    padding: 0.5vw 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding: 0.6vw 3vw;
     border: none;
     border-radius: 6px;
     font-size: 1vw;
@@ -128,12 +105,12 @@ form h3
     color: #F7C301;
 }
 
-.login
+form p
 {
     font-size: 1vw;
 }
 
-.login a
+form a
 {
     color: #78081C;
 }

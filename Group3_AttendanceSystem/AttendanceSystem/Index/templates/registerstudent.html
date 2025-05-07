@@ -21,16 +21,11 @@
         <form method="POST">
           {% csrf_token %}
 
-          <img src="{% static 'images/citu_logo.png' %}" alt="CIT - U Logo">
-          <h1> WIDLCATS CAGE </h1>
-          <h2> CHECKING ATTENDANCE GETS EASY </h2>
+          <h1> Student Registration </h1>
           <hr/>
-          <h3> Student Registration </h3>
 
           <div id="showerror">
-            {% if massage %}
               <p> {{ message }} </p>
-            {% endif %}
           </div>
 
           {{ form.username }}
@@ -38,7 +33,6 @@
           {{ form.last_name }}
           {{ form.email }}
           {{ form.password }}
-          {{ form.password2 }}
           {{ form.course }}
           {{ form.year }}
 
@@ -52,7 +46,5 @@
         </form>
     </main>
 
-    <!-- FOOTER -->
-    {% include 'footer.html' %}
   </body>
 </html>

@@ -9,19 +9,27 @@
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/regi.css' %}">
+    <style>
+      main
+        {
+            display: block;
+            width: 100%;
+            padding-top: 3vw;
+            padding-bottom: 3vw;
+            background-color: #2C2C2C;
+            min-height: 100vh;
+        }
+    </style>
   </head>
 
   <body>
     <!-- HEADER + NAV -->
     {% include 'header.html' %}
 
-    <!-- MAIN -->
     <main>
       <div id="selectrole">
-        <img src="{% static 'images/citu_logo.png' %}" alt="CIT - U Logo">
-        <h1> WILDCATS CAGE </h1>
-        <h2> CHECKING ATTENDANCE GETS EASY </h2>
+        <h1> Register </h1>
         <hr/>
         <h3> Select Your Role </h3>
         <a href="{% url 'registerstudent' %}"> <button> Student </button> </a>
@@ -31,7 +39,7 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
-    {% include 'footer.html' %}
+
+
   </body>
 </html>

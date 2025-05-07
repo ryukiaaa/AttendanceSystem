@@ -1,0 +1,138 @@
+
+/* Section Divider */
+.section-divider {
+  width: 100%;
+  height: 3px;
+  background-color: #000; /* Solid Black */
+  margin: 1rem 0;
+}
+
+/* Class Details Container */
+.class-details-container {
+  padding: 2rem;
+}
+
+.class-details-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #78081C; /* Gold for Heading */
+}
+
+/* Add Student Button */
+.add-student-btn {
+  background-color: #FF0000; /* Red for Primary Action */
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.add-student-btn:hover {
+  background-color: #B22222; /* Darker Red on Hover */
+}
+
+/* Student Table */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: #000;
+}
+
+.student-table th, .student-table td {
+  padding: 12px 16px;
+  border: 1px solid #ddd; /* Light Gray Border */
+  text-align: left;
+  color: #000; /* Dark Gray Text */
+}
+
+.student-table th {
+  background-color: #f2f2f2; /* Light Gray Background for Header */
+  color: #000; /* Black Text for Header */
+}
+
+/* Modal Toggle (Hidden) */
+#modal-toggle {
+  display: none;
+}
+
+/* Modal Button */
+.modal-btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #78081C;
+  color: #F7C301; /* Black Text for Modal Button */
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Modal Container (Hidden by Default) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* Semi-transparent Black Background */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Show Modal when Toggle is Checked */
+#modal-toggle:checked + .modal {
+  display: flex;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #fff; /* White Background for Modal Content */
+  padding: 20px;
+  width: 60%;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  color: #333; /* Dark Gray Text in Modal */
+}
+
+/* Request Row in Modal */
+.request-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd; /* Light Gray Separator */
+  padding: 8px 0;
+}
+
+/* Request Actions (Buttons in Modal) */
+.request-actions form {
+  display: inline;
+}
+
+.close-modal {
+  display: inline-block;
+  margin-top: 20px;
+  color: #FF0000; /* Red for Close Button/Link */
+  cursor: pointer;
+}
+
+.request-actions button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background-color: #FFD700; /* Gold for Action Buttons */
+  color: #000; /* Black Text for Action Buttons */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.request-actions button:hover {
+  background-color: #B8860B; /* Darker Gold on Hover */
+}
